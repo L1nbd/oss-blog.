@@ -1,0 +1,54 @@
+# Ghost runtime data - never commit
+runtime/content/data/
+runtime/content/logs/
+runtime/content/images/
+runtime/content/media/
+runtime/content/files/
+runtime/content/settings/
+runtime/content/public/
+runtime/content/adapters/
+runtime/content/snippets/
+runtime/content/data/
+runtime/.ghost-cli
+runtime/config.development.json
+runtime/config.production.json
+runtime/node_modules/
+runtime/current/
+runtime/versions/
+
+# Environment and secrets
+.env
+.env.local
+*.key
+*.pem
+*.crt
+
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+build/
+*.zip
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+npm-debug.log*
+
+# Test coverage
+coverage/
+.nyc_output/
+
+# Database backups
+backups/
