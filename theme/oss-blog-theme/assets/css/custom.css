@@ -1,0 +1,255 @@
+/* ============================================
+   自定义主题样式 - oss-blog-theme v1.0.0
+   基于 Casper 主题二次开发
+   ============================================ */
+
+/* 自定义导航项样式 */
+.gh-head-menu .custom-nav-about,
+.gh-head-menu .custom-nav-archive {
+    font-weight: 500;
+    color: var(--ghost-accent-color);
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.gh-head-menu .custom-nav-about:hover,
+.gh-head-menu .custom-nav-archive:hover {
+    opacity: 0.7;
+}
+
+/* 自定义文章卡片 */
+.custom-post-card {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 20px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    background: #fff;
+}
+
+.custom-post-card:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+/* 自定义阅读更多链接 */
+.custom-read-more {
+    display: inline-block;
+    margin-top: 12px;
+    color: var(--ghost-accent-color);
+    font-size: 0.9em;
+    font-weight: 500;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.custom-read-more:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+/* 自定义文章元数据 */
+.custom-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.85em;
+    color: #666;
+}
+
+.custom-author {
+    font-weight: 500;
+    color: #333;
+}
+
+/* 自定义文章详情页标签 */
+.custom-post-tags {
+    display: inline;
+}
+
+.custom-post-tag {
+    color: var(--ghost-accent-color);
+    text-decoration: none;
+}
+
+.custom-post-tag:hover {
+    text-decoration: underline;
+}
+
+/* 自定义页脚 */
+.custom-footer {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+    padding-top: 30px;
+    margin-top: 40px;
+}
+
+.custom-powered-by {
+    font-size: 0.85em;
+    color: #999;
+}
+
+.custom-powered-by a {
+    color: #666;
+    text-decoration: none;
+}
+
+.custom-powered-by a:hover {
+    text-decoration: underline;
+}
+
+/* 自定义文章详情页 */
+.custom-article .article-title {
+    font-size: 2.5em;
+    line-height: 1.2;
+}
+
+.custom-byline-meta {
+    margin-top: 10px;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .custom-post-card {
+        padding: 15px;
+    }
+
+    .custom-article .article-title {
+        font-size: 1.8em;
+    }
+
+    .gh-head-menu .custom-nav-about,
+    .gh-head-menu .custom-nav-archive {
+        display: none;
+    }
+}
+
+/* ============================================
+   自主扩展功能：相关文章推荐
+   ============================================ */
+.custom-related-posts {
+    margin-top: 60px;
+    padding: 40px 0;
+    background: #f8f9fa;
+    border-radius: 12px;
+}
+
+.custom-related-title {
+    text-align: center;
+    font-size: 1.6em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.related-posts-icon {
+    margin-right: 8px;
+}
+
+.custom-related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.custom-related-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.custom-related-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.related-post-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.related-post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 0.85em;
+}
+
+.related-post-tag {
+    color: var(--ghost-accent-color);
+    font-weight: 500;
+}
+
+.related-post-date {
+    color: #999;
+}
+
+.related-post-title {
+    font-size: 1.15em;
+    margin: 0 0 10px;
+    line-height: 1.4;
+    color: #222;
+}
+
+.related-post-excerpt {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0 0 15px;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.related-post-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85em;
+    color: #999;
+}
+
+.related-post-read-more {
+    color: var(--ghost-accent-color);
+    font-weight: 500;
+}
+
+/* ============================================
+   自主扩展功能：阅读进度条
+   ============================================ */
+.custom-reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: 9999;
+    display: none;
+}
+
+.custom-reading-progress-fill {
+    height: 100%;
+    background: var(--ghost-accent-color);
+    width: 0%;
+    transition: width 0.1s ease;
+}
+
+/* 响应式：相关推荐 */
+@media (max-width: 768px) {
+    .custom-related-posts {
+        padding: 30px 0;
+        margin-top: 40px;
+    }
+
+    .custom-related-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .custom-reading-progress {
+        height: 2px;
+    }
+}

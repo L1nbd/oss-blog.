@@ -1,0 +1,41 @@
+{{!-- 相关文章推荐 - 自主扩展功能 --}}
+{{!-- 基于当前文章的标签匹配相关文章 --}}
+
+{{#if primary_tag}}
+    {{#get "posts" filter="tags:[{{primary_tag.slug}}]+id:-{{id}}" limit="3" include="tags,authors" as |related_posts|}}
+        {{#if related_posts}}
+            <aside class="related-posts-wrap outer custom-related-posts">
+                <div class="inner">
+                    <h2 class="related-posts-title custom-related-title">
+                        <span class="related-posts-icon">📚</span>
+                        相关推荐
+                    </h2>
+                    <div class="related-posts-grid custom-related-grid">
+                        {{#foreach related_posts}}
+                            <article class="related-post-card custom-related-card">
+                                <a class="related-post-link" href="{{url}}">
+                                    <div class="related-post-header">
+                                        {{#primary_tag}}
+                                            <span class="related-post-tag">{{name}}</span>
+                                        {{/primary_tag}}
+                                        <time class="related-post-date" datetime="{{date format="YYYY-MM-DD"}}">{{date format="YYYY-MM-DD"}}</time>
+                                    </div>
+                                    <h3 class="related-post-title">{{title}}</h3>
+                                    {{#if excerpt}}
+                                        <p class="related-post-excerpt">{{excerpt}}</p>
+                                    {{/if}}
+                                    <div class="related-post-footer">
+                                        {{#primary_author}}
+                                            <span class="related-post-author">{{name}}</span>
+                                        {{/primary_author}}
+                                        <span class="related-post-read-more">阅读 →</span>
+                                    </div>
+                                </a>
+                            </article>
+                        {{/foreach}}
+                    </div>
+                </div>
+            </aside>
+        {{/if}}
+    {{/get}}
+{{/if}}

@@ -1,0 +1,89 @@
+{{!< default}}
+
+{{!-- 自定义 404 页面 - oss-blog-theme --}}
+
+<section class="outer error-content custom-error-page">
+    <div class="inner">
+        <section class="error-message custom-error-message">
+            <h1 class="error-code custom-error-code">{{statusCode}}</h1>
+            <p class="error-description custom-error-description">
+                {{#match message "Page not found"}}页面未找到{{else}}{{message}}{{/match}}
+            </p>
+            <p class="custom-error-hint">抱歉，您访问的页面不存在或已被移动。</p>
+            <div class="custom-error-actions">
+                <a class="error-link custom-error-link" href="{{@site.url}}">返回首页 →</a>
+                <a class="custom-error-search-link" href="#" onclick="document.querySelector('[data-ghost-search]').click(); return false;">站内搜索</a>
+            </div>
+        </section>
+    </div>
+</section>
+
+{{!-- 推荐阅读 --}}
+<aside class="read-more-wrap outer">
+    <div class="read-more inner">
+        <h2 class="custom-read-more-title">推荐阅读</h2>
+        {{#get "posts" include="authors" limit="3" as |more_posts|}}
+            {{#if more_posts}}
+                {{#foreach more_posts}}
+                    {{> "post-card"}}
+                {{/foreach}}
+            {{/if}}
+        {{/get}}
+    </div>
+</aside>
+
+<style>
+.custom-error-page {
+    text-align: center;
+    padding: 60px 0;
+}
+.custom-error-code {
+    font-size: 6em;
+    font-weight: 700;
+    color: var(--ghost-accent-color);
+    margin: 0;
+    line-height: 1;
+}
+.custom-error-description {
+    font-size: 1.5em;
+    color: #333;
+    margin: 20px 0 10px;
+}
+.custom-error-hint {
+    font-size: 1em;
+    color: #666;
+    margin: 0 0 30px;
+}
+.custom-error-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.custom-error-link,
+.custom-error-search-link {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+.custom-error-link {
+    background: var(--ghost-accent-color);
+    color: #fff;
+}
+.custom-error-search-link {
+    border: 1px solid var(--ghost-accent-color);
+    color: var(--ghost-accent-color);
+}
+.custom-error-link:hover,
+.custom-error-search-link:hover {
+    opacity: 0.8;
+}
+.custom-read-more-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+</style>
