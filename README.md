@@ -147,6 +147,26 @@ node current/index.js
 - **管理员**：admin@example.com / 134679aaaa
 - **会员**：zhangsan@example.com / lisi@example.com
 
+### 会员登录流程（魔法链接）
+
+Ghost 会员采用**无密码魔法链接**登录，无需输入密码：
+
+1. **启动假 SMTP 服务器**（接收邮件，不会真的发送）
+```powershell
+cd scripts
+node fake-smtp-server.js
+```
+
+2. **在前台点击 Sign in**，输入会员邮箱（如 zhangsan@example.com），点击 Retry
+
+3. **获取魔法登录链接**（二选一）：
+   - 方式一：运行一键脚本 `.\open-login.ps1`，自动打开最新登录链接
+   - 方式二：手动打开 `runtime/mailbox/latest-login-link.txt`，复制链接到浏览器
+
+4. **在浏览器打开登录链接**，自动登录成功
+
+> 登录链接有效期 24 小时，每次登录会生成新链接。邮件保存在 `runtime/mailbox/` 目录。
+
 ## 数据库备份与恢复
 
 ### 备份
