@@ -1,0 +1,15 @@
+﻿[[90m12:25:03[39m] Using gulpfile ~\oss-blog\theme\oss-blog-theme\gulpfile.js
+[[90m12:25:03[39m] Starting 'build'...
+[[90m12:25:03[39m] Starting 'css'...
+[[90m12:25:09[39m] Finished 'css' after 6.37 s
+[[90m12:25:09[39m] Starting 'js'...
+node.exe : (node:85412) [DEP0180] DeprecationWarning: fs.Stats constructor is deprecated.
+所在位置 行:1 字符: 1
++ & "C:\Users\34344\AppData\Local\Doubao\User Data\sandbox_runtime\base ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ((node:85412) [D... is deprecated.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+(Use `node --trace-deprecation ...` to show where the warning was created)
+[[90m12:25:10[39m] Finished 'js' after 639 ms
+[[90m12:25:10[39m] Finished 'build' after 7.01 s

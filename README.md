@@ -15,6 +15,32 @@
 - **前端**：HTML5 / CSS3 / JavaScript (jQuery)
 - **版本管理**：Git 2.55.0
 
+## 系统架构
+
+```mermaid
+graph TD
+    A[访客/会员浏览器] --> B[自定义 Ghost 主题<br/>oss-blog-theme v1.0.0]
+    C[作者/管理员] --> D[Ghost Admin<br/>/ghost/]
+    B --> E[Ghost 前端服务<br/>core/frontend]
+    D --> F[Ghost Admin API]
+    E --> G[Ghost 内容与会员服务<br/>core/server]
+    F --> G
+    G --> H[(SQLite 数据库<br/>content/data/ghost.db)]
+    G --> I[评论与会员数据]
+    G --> J[搜索索引]
+    B --> K[自主扩展模块<br/>相关推荐/阅读进度条]
+    K --> G
+    L[备份/导出] --> H
+    H --> M[恢复]
+    N[假 SMTP 服务器<br/>127.0.0.1:2525] --> G
+```
+
+**架构说明**：
+- Ghost 核心负责认证、内容、标签、会员和评论，不修改核心代码
+- 自定义主题和扩展模块是主要修改边界，通过主题助手或 Content API 访问内容
+- 运行数据与源代码分离，数据库、日志和密钥不提交到 Git
+- 本地假 SMTP 服务器接收邮件，解决开发环境邮件发送问题
+
 ## 项目结构
 
 ```
