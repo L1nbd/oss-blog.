@@ -1,0 +1,80 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="linear-gradient(135deg,rgba(13,19,38,1) 0%,rgba(37,99,235,1) 100%)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="6">
+      <fill>
+        <fillColor color="rgba(191,215,255,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="60" width="800" height="60">
+      <content textType="headline" fontSize="36" color="rgba(255,255,255,1)" bold="true" textAlign="center">
+        <p>总结与展望</p>
+      </content>
+    </shape>
+    <line startX="430" startY="130" endX="530" endY="130">
+      <border color="rgba(191,215,255,1)" width="3"/>
+    </line>
+    <shape type="rect" topLeftX="60" topLeftY="160" width="400" height="160">
+      <fill><fillColor color="rgba(255,255,255,0.1)"/></fill>
+      <border color="rgba(191,215,255,0.5)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="175" width="360" height="30">
+      <content textType="sub-headline" fontSize="18" color="rgba(191,215,255,1)" bold="true"><p>实验成果</p></content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="210" width="360" height="100">
+      <content textType="body" fontSize="13" color="rgba(255,255,255,1)" lineSpacing="multiple:1.6">
+        <ul>
+          <li><p>成功安装运行 Ghost 5.130.6</p></li>
+          <li><p>开发自定义主题 oss-blog-theme</p></li>
+          <li><p>实现2项自主扩展功能</p></li>
+          <li><p>18项测试全部通过</p></li>
+          <li><p>完整Git版本管理（10 Commit）</p></li>
+        </ul>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="500" topLeftY="160" width="400" height="160">
+      <fill><fillColor color="rgba(255,255,255,0.1)"/></fill>
+      <border color="rgba(191,215,255,0.5)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="520" topLeftY="175" width="360" height="30">
+      <content textType="sub-headline" fontSize="18" color="rgba(191,215,255,1)" bold="true"><p>收获与体会</p></content>
+    </shape>
+    <shape type="text" topLeftX="520" topLeftY="210" width="360" height="100">
+      <content textType="body" fontSize="13" color="rgba(255,255,255,1)" lineSpacing="multiple:1.6">
+        <ul>
+          <li><p>掌握开源项目获取与分析方法</p></li>
+          <li><p>理解Ghost主题开发与扩展机制</p></li>
+          <li><p>提升问题排查与解决能力</p></li>
+          <li><p>实践Git协作流程（Issue/PR/Review）</p></li>
+          <li><p>学会编写完整测试与项目文档</p></li>
+        </ul>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="350" width="800" height="35">
+      <content textType="sub-headline" fontSize="18" color="rgba(191,215,255,1)" bold="true" textAlign="center"><p>后续改进方向</p></content>
+    </shape>
+    <line startX="430" startY="390" endX="530" endY="390">
+      <border color="rgba(191,215,255,1)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="80" topLeftY="410" width="800" height="80">
+      <content textType="body" fontSize="14" color="rgba(255,255,255,1)" textAlign="center" lineSpacing="multiple:1.8">
+        <p>增加自动化测试（Playwright/Cypress）· 实现会员账号密码登录 · 补充多标签文章场景</p>
+        <p>推送GitHub远程仓库 · 深入RealWorld API规范 · 优化相关文章推荐缓存机制</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="500" width="800" height="30">
+      <content textType="body" fontSize="16" color="rgba(191,215,255,1)" bold="true" textAlign="center">
+        <p>感谢聆听 · 欢迎提问</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>最后进行总结与展望。实验成果方面：成功安装运行Ghost 5.130.6，开发了自定义主题oss-blog-theme，实现了相关文章推荐和阅读进度条两项自主扩展功能，18项测试全部通过，建立了完整的Git版本管理（10个非合并Commit、2个Issue、1个PR、1次Code Review、v1.0-lab标签）。收获与体会方面：掌握了开源项目获取与分析方法，理解了Ghost主题开发与扩展机制，提升了问题排查与解决能力，实践了Git协作流程，学会了编写完整测试与项目文档。后续改进方向包括：增加自动化测试、实现会员账号密码登录、补充多标签文章场景、推送GitHub远程仓库、深入RealWorld API规范、优化相关文章推荐缓存机制。感谢各位老师和同学的聆听，欢迎提问。</p>
+    </content>
+  </note>
+</slide>

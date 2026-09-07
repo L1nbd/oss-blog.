@@ -1,0 +1,3044 @@
+<presentation id="XSWaspvjWlueKIdMCm2ctcSMnzg" xmlns="https://www.larkoffice.com/sml/2.0" width="960" height="540">
+  <title>实验01-开源个人博客系统二次开发</title>
+  <theme>
+    <textStyles>
+      <headline fontColor="rgba(31, 35, 41, 1)"/>
+      <sub-headline fontColor="rgba(31, 35, 41, 1)"/>
+      <body fontColor="rgba(31, 35, 41, 1)"/>
+      <caption fontColor="rgba(155, 158, 162, 1)" fontSize="14"/>
+    </textStyles>
+  </theme>
+  <slide id="pll">
+    <style>
+      <fill id="fll">
+        <fillColor color="linear-gradient(135deg,rgba(13, 19, 38, 1) 0%,rgba(37, 99, 235, 1) 100%)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="6" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bOo">
+        <fill>
+          <fillColor color="rgba(191, 215, 255, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="800" height="60" topLeftX="80" topLeftY="120" type="text" id="bOa">
+        <content textType="caption" fontSize="18" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" letterSpacing="2">
+          <p>《开源软件与新技术》课程实验</p>
+        </content>
+      </shape>
+      <shape width="800" height="120" topLeftX="80" topLeftY="180" type="text" id="bOW">
+        <content textType="title" fontSize="48" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" letterSpacing="1">
+          <p>实验01</p>
+          <p>开源个人博客系统二次开发</p>
+        </content>
+      </shape>
+      <shape width="700" height="60" topLeftX="80" topLeftY="340" type="text" id="bOJ">
+        <content fontSize="18" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)">
+          <p>基于 Ghost 5.130.6 · 可注册 · 可写作 · 可评论 · 可搜索</p>
+        </content>
+      </shape>
+      <line id="bOe" startX="80" startY="430" endX="200.00416659433122" endY="430">
+        <border color="rgba(191, 215, 255, 1)"/>
+      </line>
+      <shape width="400" height="40" topLeftX="80" topLeftY="450" type="text" id="bOO">
+        <content textType="caption" fontSize="14" fontFamily="思源黑体" color="rgba(191, 215, 255, 0.8)">
+          <p>2026年9月7日</p>
+        </content>
+      </shape>
+      <shape width="280" height="40" topLeftX="600" topLeftY="450" type="text" id="bOB">
+        <content textType="caption" fontSize="14" fontFamily="思源黑体" color="rgba(191, 215, 255, 0.8)" textAlign="right">
+          <p>v1.0-lab</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bOX">
+      <content>
+        <p>各位老师、同学好，今天我汇报的是《开源软件与新技术》课程的实验01——开源个人博客系统二次开发。本实验基于成熟的开源博客平台Ghost 5.130.6，完成了一个具备注册、写作、评论、搜索功能的个人博客系统。接下来我将从实验背景、技术选型、系统架构、自定义主题、自主扩展功能、测试结果、Git管理等方面进行汇报。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plZ">
+    <style>
+      <fill id="flZ">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="6" height="540" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bOz">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="400" height="50" topLeftX="60" topLeftY="50" type="text" id="bOc">
+        <content textType="headline" fontSize="32" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>目录</p>
+        </content>
+      </shape>
+      <line id="bOg" startX="60" startY="110" endX="160.00499987500626" endY="110">
+        <border color="rgba(37, 99, 235, 1)" width="3"/>
+      </line>
+      <shape width="380" height="50" topLeftX="60" topLeftY="150" type="text" id="bOH">
+        <content fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p><span color="rgba(37, 99, 235, 1)">01</span> 实验背景与目标</p>
+        </content>
+      </shape>
+      <shape width="380" height="50" topLeftX="60" topLeftY="210" type="text" id="bOr">
+        <content fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p><span color="rgba(37, 99, 235, 1)">02</span> 技术选型与路线</p>
+        </content>
+      </shape>
+      <shape width="380" height="50" topLeftX="60" topLeftY="270" type="text" id="bON">
+        <content fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p><span color="rgba(37, 99, 235, 1)">03</span> 系统架构</p>
+        </content>
+      </shape>
+      <shape width="380" height="50" topLeftX="500" topLeftY="150" type="text" id="bOD">
+        <content fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p><span color="rgba(37, 99, 235, 1)">04</span> 自定义主题开发</p>
+        </content>
+      </shape>
+      <shape width="380" height="50" topLeftX="500" topLeftY="210" type="text" id="bOQ">
+        <content fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p><span color="rgba(37, 99, 235, 1)">05</span> 自主扩展功能</p>
+        </content>
+      </shape>
+      <shape width="380" height="50" topLeftX="500" topLeftY="270" type="text" id="bOp">
+        <content fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p><span color="rgba(37, 99, 235, 1)">06</span> 测试与Git管理</p>
+        </content>
+      </shape>
+      <line id="bOx" startX="60" startY="360" endX="900.0005952378843" endY="360">
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+      </line>
+      <shape width="840" height="100" topLeftX="60" topLeftY="390" type="text" id="bOR">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>本次汇报将围绕以上六个方面展开，重点介绍基于Ghost 5.130.6的二次开发实践，包括自定义主题oss-blog-theme的开发、两项自主扩展功能的实现、18项测试的执行结果，以及完整的Git版本管理流程。</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bOq">
+      <content>
+        <p>本次汇报分为六个部分：首先介绍实验背景与目标，然后是技术选型与路线选择，接着是系统架构设计，之后重点介绍自定义主题开发和两项自主扩展功能，最后汇报测试结果与Git版本管理。整个实验遵循不修改Ghost核心的原则，所有二次开发均在主题和配置层面完成。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="ply">
+    <style>
+      <fill id="fly">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bOU">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="bOv">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>01 实验背景与目标</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="bOC">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共13页</p>
+        </content>
+      </shape>
+      <shape width="420" height="40" topLeftX="40" topLeftY="90" type="text" id="bOt">
+        <content textType="sub-headline" fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>实验背景</p>
+        </content>
+      </shape>
+      <line id="bOl" startX="40" startY="135" endX="120.00624975587843" endY="135">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <shape width="420" height="200" topLeftX="40" topLeftY="155" type="text" id="bOh">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.6">
+          <p>个人博客系统包含身份、内容、分类、评论和检索等典型Web子系统，是观察开源软件生命周期的合适切入口。</p>
+          <p>本实验要求以成熟开源项目为基线，完成可辨识的二次开发、测试、Git版本管理和现场运行展示。</p>
+          <p>通过本实验，掌握从GitHub获取开源项目、本地部署、二次开发、测试验证到版本管理的完整流程。</p>
+        </content>
+      </shape>
+      <shape width="420" height="380" topLeftX="500" topLeftY="90" presetHandlers="0" type="rect" id="bOk">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="380" height="40" topLeftX="520" topLeftY="110" type="text" id="bOF">
+        <content textType="sub-headline" fontSize="20" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>实验目标</p>
+        </content>
+      </shape>
+      <line id="bOf" startX="520" startY="155" endX="600.0062497558785" endY="155">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <shape width="380" height="280" topLeftX="520" topLeftY="175" type="text" id="bOG">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.8" list="bullet" listStyle="circle-hollow-square">
+          <ul>
+            <li>
+              <p>判断开源博客方案的适用边界</p>
+            </li>
+            <li>
+              <p>掌握Ghost本地安装、启动、停止、备份方法</p>
+            </li>
+            <li>
+              <p>定位主题、内容API、标签和评论模块</p>
+            </li>
+            <li>
+              <p>完成至少1项非换色类自主扩展功能</p>
+            </li>
+            <li>
+              <p>完成18项功能、权限、界面、恢复测试</p>
+            </li>
+            <li>
+              <p>掌握Issue、PR、Code Review协作流程</p>
+            </li>
+            <li>
+              <p>交付可现场运行的个人博客系统</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+    </data>
+    <note id="bOy">
+      <content>
+        <p>首先介绍实验背景。个人博客系统是观察开源软件生命周期的典型场景，包含身份认证、内容管理、分类标签、评论互动和搜索检索等Web子系统。本实验要求以成熟开源项目为基线，完成可辨识的二次开发。实验目标包括七个方面：判断开源方案适用边界、掌握Ghost部署运维、定位核心模块、实现自主扩展功能、完成18项测试、掌握Git协作流程、交付可运行系统。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="pld">
+    <style>
+      <fill id="fld">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bOI">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="baO">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>02 技术选型与路线</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="baq">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共13页</p>
+        </content>
+      </shape>
+      <shape width="880" height="35" topLeftX="40" topLeftY="85" type="text" id="bOV">
+        <content textType="sub-headline" fontSize="18" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>路线对比：RealWorld规范 vs Ghost成品</p>
+        </content>
+      </shape>
+      <table id="bOb" width="880" height="180" topLeftX="40" topLeftY="130">
+        <colgroup>
+          <col span="1" width="140"/>
+          <col span="2" width="370"/>
+        </colgroup>
+        <tr height="40">
+          <td id="bOK">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>对比维度</p>
+            </content>
+          </td>
+          <td id="bOS">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>RealWorld规范路线</p>
+            </content>
+          </td>
+          <td id="baJ">
+            <fill>
+              <fillColor color="rgba(37, 99, 235, 1)"/>
+            </fill>
+            <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>Ghost成品路线（选定）</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="35">
+          <td id="bOi">
+            <content fontSize="12" fontFamily="思源黑体" bold="true">
+              <p>开发量</p>
+            </content>
+          </td>
+          <td id="bOs">
+            <content fontSize="12" fontFamily="思源黑体" textAlign="left">
+              <p>需从零实现前后端，工作量大</p>
+            </content>
+          </td>
+          <td id="bOn">
+            <content fontSize="12" fontFamily="思源黑体" textAlign="left">
+              <p>成熟平台，聚焦二次开发</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="35">
+          <td id="baX">
+            <content fontSize="12" fontFamily="思源黑体" bold="true">
+              <p>功能完整度</p>
+            </content>
+          </td>
+          <td id="bOE">
+            <content fontSize="12" fontFamily="思源黑体" textAlign="left">
+              <p>需自行实现编辑器、会员、评论</p>
+            </content>
+          </td>
+          <td id="bOA">
+            <content fontSize="12" fontFamily="思源黑体" textAlign="left">
+              <p>内置编辑器、会员、评论、搜索</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="35">
+          <td id="bOZ">
+            <content fontSize="12" fontFamily="思源黑体" bold="true">
+              <p>扩展边界</p>
+            </content>
+          </td>
+          <td id="bae">
+            <content fontSize="12" fontFamily="思源黑体" textAlign="left">
+              <p>完全自主，无边界限制</p>
+            </content>
+          </td>
+          <td id="bOj">
+            <content fontSize="12" fontFamily="思源黑体" textAlign="left">
+              <p>主题+Content API，边界清晰</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="35">
+          <td id="bOL">
+            <content fontSize="12" fontFamily="思源黑体" bold="true">
+              <p>许可证</p>
+            </content>
+          </td>
+          <td id="bOw">
+            <content fontSize="12" fontFamily="思源黑体" textAlign="left">
+              <p>MIT，各实现版本不一</p>
+            </content>
+          </td>
+          <td id="bao">
+            <content fontSize="12" fontFamily="思源黑体" textAlign="left">
+              <p>MIT，二次开发无法律风险</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+      <shape width="880" height="35" topLeftX="40" topLeftY="335" type="text" id="baa">
+        <content textType="sub-headline" fontSize="18" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>技术栈</p>
+        </content>
+      </shape>
+      <shape width="200" height="100" topLeftX="40" topLeftY="380" presetHandlers="0" type="rect" id="baN">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="180" height="25" topLeftX="50" topLeftY="395" type="text" id="bOu">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="center">
+          <p>博客平台</p>
+        </content>
+      </shape>
+      <shape width="180" height="45" topLeftX="50" topLeftY="425" type="text" id="bOY">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>Ghost 5.130.6</p>
+        </content>
+      </shape>
+      <shape width="200" height="100" topLeftX="260" topLeftY="380" presetHandlers="0" type="rect" id="bOM">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="180" height="25" topLeftX="270" topLeftY="395" type="text" id="baB">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="center">
+          <p>运行环境</p>
+        </content>
+      </shape>
+      <shape width="180" height="45" topLeftX="270" topLeftY="425" type="text" id="baz">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>Node.js v22.23.2</p>
+        </content>
+      </shape>
+      <shape width="200" height="100" topLeftX="480" topLeftY="380" presetHandlers="0" type="rect" id="bOT">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="180" height="25" topLeftX="490" topLeftY="395" type="text" id="bOm">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="center">
+          <p>数据库</p>
+        </content>
+      </shape>
+      <shape width="180" height="45" topLeftX="490" topLeftY="425" type="text" id="baW">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>SQLite 3</p>
+        </content>
+      </shape>
+      <shape width="220" height="100" topLeftX="700" topLeftY="380" presetHandlers="0" type="rect" id="baD">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="25" topLeftX="710" topLeftY="395" type="text" id="bac">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="center">
+          <p>主题引擎</p>
+        </content>
+      </shape>
+      <shape width="200" height="45" topLeftX="710" topLeftY="425" type="text" id="bOd">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>Handlebars</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bOP">
+      <content>
+        <p>技术选型方面，我们对比了RealWorld规范路线和Ghost成品路线。RealWorld需要从零实现前后端，工作量大；而Ghost是成熟的开源博客平台，内置编辑器、会员、评论、搜索等功能，MIT许可证允许二次开发。最终选择Ghost路线，把精力集中在主题定制和功能扩展上。技术栈包括Ghost 5.130.6、Node.js v22.23.2、SQLite 3数据库、Handlebars主题引擎。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plq">
+    <style>
+      <fill id="flq">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bBV">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="bBM">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>03 系统架构</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="bWB">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共13页</p>
+        </content>
+      </shape>
+      <shape width="200" height="60" topLeftX="40" topLeftY="85" presetHandlers="0" type="rect" id="bBl">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="40" topLeftX="40" topLeftY="95" type="text" id="bBY">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>访客/会员浏览器</p>
+        </content>
+      </shape>
+      <line id="bBm" startX="140" startY="145" endX="140" endY="175.01666203960727">
+        <border color="rgba(13, 19, 38, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="200" height="80" topLeftX="40" topLeftY="175" presetHandlers="0" type="rect" id="bWW">
+        <fill>
+          <fillColor color="rgba(191, 215, 255, 1)"/>
+        </fill>
+        <border color="rgba(37, 99, 235, 1)"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="180" height="25" topLeftX="50" topLeftY="185" type="text" id="bBu">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>自定义主题</p>
+        </content>
+      </shape>
+      <shape width="180" height="35" topLeftX="50" topLeftY="210" type="text" id="bBT">
+        <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="center">
+          <p>oss-blog-theme v1.0.0</p>
+          <p>相关推荐 / 阅读进度条</p>
+        </content>
+      </shape>
+      <line id="bBK" startX="139.99999999999997" startY="255" endX="139.99999999999997" endY="285.01666203960724">
+        <border color="rgba(13, 19, 38, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="200" height="60" topLeftX="40" topLeftY="285" presetHandlers="0" type="rect" id="bBS">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(13, 19, 38, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="180" height="40" topLeftX="50" topLeftY="295" type="text" id="bWJ">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>Ghost 前端服务</p>
+          <p>core/frontend</p>
+        </content>
+      </shape>
+      <line id="bBd" startX="140" startY="345" endX="140" endY="375.01666203960724">
+        <border color="rgba(13, 19, 38, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="200" height="60" topLeftX="40" topLeftY="375" presetHandlers="0" type="rect" id="bBs">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(13, 19, 38, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="180" height="40" topLeftX="50" topLeftY="385" type="text" id="bBn">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>内容与会员服务</p>
+          <p>core/server</p>
+        </content>
+      </shape>
+      <line id="bWX" startX="139.99999999999994" startY="435" endX="139.99999999999994" endY="465.01666203960724">
+        <border color="rgba(13, 19, 38, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="160" height="50" topLeftX="60" topLeftY="465" type="ellipse" id="bBi">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="30" topLeftX="60" topLeftY="475" type="text" id="bBE">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>SQLite 数据库</p>
+        </content>
+      </shape>
+      <shape width="280" height="430" topLeftX="320" topLeftY="85" presetHandlers="0" type="rect" id="bBA">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="240" height="30" topLeftX="340" topLeftY="100" type="text" id="bBZ">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>二次开发边界</p>
+        </content>
+      </shape>
+      <line id="bBC" startX="340" startY="135" endX="420.00624975587846" endY="135">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <shape width="240" height="180" topLeftX="340" topLeftY="150" type="text" id="bBj">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.8">
+          <p><strong><span color="rgba(37, 99, 235, 1)">允许修改：</span></strong></p>
+          <ul>
+            <li>
+              <p>自定义主题模板</p>
+            </li>
+            <li>
+              <p>主题样式与脚本</p>
+            </li>
+            <li>
+              <p>Content API 调用</p>
+            </li>
+            <li>
+              <p>配置文件优化</p>
+            </li>
+            <li>
+              <p>项目文档与测试</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+      <shape width="240" height="160" topLeftX="340" topLeftY="340" type="text" id="bBL">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.8">
+          <p><strong><span color="rgba(200, 50, 50, 1)">禁止修改：</span></strong></p>
+          <ul>
+            <li>
+              <p>Ghost 核心代码</p>
+            </li>
+            <li>
+              <p>core/server 业务逻辑</p>
+            </li>
+            <li>
+              <p>数据库迁移脚本</p>
+            </li>
+            <li>
+              <p>管理端 Ember 应用</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+      <shape width="260" height="200" topLeftX="660" topLeftY="85" presetHandlers="0" type="rect" id="bBw">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="220" height="30" topLeftX="680" topLeftY="100" type="text" id="bBf">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>管理员通道</p>
+        </content>
+      </shape>
+      <line id="bBI" startX="680" startY="135" endX="760.0062497558785" endY="135">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <shape width="220" height="120" topLeftX="680" topLeftY="150" type="text" id="bWO">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.6">
+          <p>作者/管理员 → /ghost/</p>
+          <p>→ Ghost Admin (Ember.js)</p>
+          <p>→ Admin API</p>
+          <p>→ 内容与会员服务</p>
+          <p>→ SQLite 数据库</p>
+        </content>
+      </shape>
+      <shape width="260" height="200" topLeftX="660" topLeftY="315" presetHandlers="0" type="rect" id="bBt">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="220" height="30" topLeftX="680" topLeftY="330" type="text" id="bBP">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>辅助服务</p>
+        </content>
+      </shape>
+      <line id="bBb" startX="680" startY="365" endX="760.0062497558785" endY="365">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <shape width="220" height="120" topLeftX="680" topLeftY="380" type="text" id="bWa">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.6">
+          <p>假 SMTP 服务器</p>
+          <p>127.0.0.1:2525</p>
+          <p>接收会员邮件/验证码</p>
+          <p>数据库备份与恢复</p>
+          <p>内容导出（脱敏）</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bBG">
+      <content>
+        <p>系统架构采用分层设计。访客通过浏览器访问自定义主题oss-blog-theme，主题层包含我们开发的相关文章推荐和阅读进度条功能。请求经过Ghost前端服务路由解析和模板渲染，到达内容与会员服务层处理文章、标签、会员、评论和搜索业务，最终数据存储在SQLite数据库中。管理员通过/ghost/管理端操作，走Admin API通道。本实验严格遵循不修改Ghost核心的原则，所有二次开发均在主题和配置层面。辅助服务包括本地假SMTP服务器接收邮件，以及数据库备份恢复和内容导出功能。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plc">
+    <style>
+      <fill id="flc">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bBJ">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="bBc">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>04 自定义主题开发</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="bBy">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共13页</p>
+        </content>
+      </shape>
+      <shape width="280" height="180" topLeftX="40" topLeftY="85" presetHandlers="0" type="rect" id="bam">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="240" height="30" topLeftX="60" topLeftY="105" type="text" id="bBW">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" bold="true">
+          <p>主题信息</p>
+        </content>
+      </shape>
+      <shape width="240" height="110" topLeftX="60" topLeftY="140" type="text" id="bBD">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" lineSpacing="multiple:1.8">
+          <p>名称：oss-blog-theme</p>
+          <p>版本：v1.0.0</p>
+          <p>基础：Casper 5.9.0</p>
+          <p>构建：gulp 4.0.2</p>
+          <p>校验：gscan 通过</p>
+        </content>
+      </shape>
+      <shape width="560" height="35" topLeftX="360" topLeftY="85" type="text" id="bBr">
+        <content textType="sub-headline" fontSize="18" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>主题修改清单</p>
+        </content>
+      </shape>
+      <line id="baM" startX="360" startY="125" endX="440.00624975587846" endY="125">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <table id="bBB" width="560" height="260" topLeftX="360" topLeftY="140">
+        <colgroup>
+          <col span="1" width="160"/>
+          <col span="1" width="80"/>
+          <col span="1" width="320"/>
+        </colgroup>
+        <tr height="37">
+          <td id="bBH">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>文件</p>
+            </content>
+          </td>
+          <td id="bBF">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>类型</p>
+            </content>
+          </td>
+          <td id="baL">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>修改内容</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="37">
+          <td id="baI">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>default.hbs</p>
+            </content>
+          </td>
+          <td id="bBO">
+            <content fontSize="11" fontFamily="思源黑体">
+              <p>修改</p>
+            </content>
+          </td>
+          <td id="bBq">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>自定义导航栏、页脚、阅读进度条</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="37">
+          <td id="bBx">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>post-card.hbs</p>
+            </content>
+          </td>
+          <td id="bBv">
+            <content fontSize="11" fontFamily="思源黑体">
+              <p>修改</p>
+            </content>
+          </td>
+          <td id="baA">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>文章卡片样式、阅读更多、中文日期</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="37">
+          <td id="baw">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>post.hbs</p>
+            </content>
+          </td>
+          <td id="bBo">
+            <content fontSize="11" fontFamily="思源黑体">
+              <p>修改</p>
+            </content>
+          </td>
+          <td id="bBp">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>详情页元数据、标签列表、相关推荐</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="37">
+          <td id="bBk">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>error-404.hbs</p>
+            </content>
+          </td>
+          <td id="baZ">
+            <content fontSize="11" fontFamily="思源黑体">
+              <p>修改</p>
+            </content>
+          </td>
+          <td id="bBe">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>自定义404页面、推荐阅读、搜索入口</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="37">
+          <td id="bBg">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>custom.css</p>
+            </content>
+          </td>
+          <td id="bBU">
+            <content fontSize="11" fontFamily="思源黑体">
+              <p>新增</p>
+            </content>
+          </td>
+          <td id="ban">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>自定义样式（导航/卡片/页脚/响应式）</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="38">
+          <td id="bBX">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>related-posts.hbs</p>
+            </content>
+          </td>
+          <td id="bBQ">
+            <content fontSize="11" fontFamily="思源黑体">
+              <p>新增</p>
+            </content>
+          </td>
+          <td id="bBh">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>相关文章推荐partial（基于标签匹配）</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+      <shape width="280" height="110" topLeftX="40" topLeftY="290" presetHandlers="0" type="rect" id="bBz">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="240" height="25" topLeftX="60" topLeftY="305" type="text" id="bBR">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>gscan 校验结果</p>
+        </content>
+      </shape>
+      <shape width="240" height="55" topLeftX="60" topLeftY="335" type="text" id="bab">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>兼容 Ghost 5.x</p>
+          <p>0 致命错误 · 0 阻断警告</p>
+        </content>
+      </shape>
+      <shape width="880" height="80" topLeftX="40" topLeftY="420" presetHandlers="0" type="rect" id="bBa">
+        <fill>
+          <fillColor color="rgba(191, 215, 255, 0.3)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="840" height="50" topLeftX="60" topLeftY="435" type="text" id="bBN">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" lineSpacing="multiple:1.6">
+          <p><strong>构建流程：</strong>npm install --legacy-peer-deps（1031包）→ npx gulp build（CSS/JS构建成功）→ npx gscan .（校验通过）→ npx gulp zip（生成主题压缩包422KB）</p>
+        </content>
+      </shape>
+    </data>
+    <note id="baS">
+      <content>
+        <p>自定义主题oss-blog-theme基于Casper 5.9.0二次开发，版本v1.0.0。主要修改包括：default.hbs自定义导航栏和页脚，添加阅读进度条；post-card.hbs修改文章卡片样式，添加阅读更多链接和中文日期格式；post.hbs优化详情页元数据，显示所有标签，引入相关文章推荐；error-404.hbs自定义404页面。新增custom.css自定义样式文件和related-posts.hbs相关文章推荐partial。主题通过gscan校验，兼容Ghost 5.x，0致命错误。构建流程包括npm安装依赖、gulp构建、gscan校验、gulp zip打包。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plV">
+    <style>
+      <fill id="flV">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="baT">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="bap">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>05 自主扩展功能一：相关文章推荐</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="bak">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共13页</p>
+        </content>
+      </shape>
+      <shape width="420" height="180" topLeftX="40" topLeftY="85" presetHandlers="0" type="rect" id="bal">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="380" height="30" topLeftX="60" topLeftY="100" type="text" id="baY">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>用户故事</p>
+        </content>
+      </shape>
+      <line id="bag" startX="60" startY="135" endX="140.00624975587843" endY="135">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <shape width="380" height="100" topLeftX="60" topLeftY="150" type="text" id="baU">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.7">
+          <p>作为博客读者，我希望在阅读完一篇文章后，能够看到与当前文章主题相关的其他文章推荐，以便继续深入阅读感兴趣的内容，提升阅读体验和内容发现效率。</p>
+        </content>
+      </shape>
+      <shape width="420" height="180" topLeftX="500" topLeftY="85" presetHandlers="0" type="rect" id="bai">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="380" height="30" topLeftX="520" topLeftY="100" type="text" id="bas">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>验收条件</p>
+        </content>
+      </shape>
+      <line id="baH" startX="520" startY="135" endX="600.0062497558785" endY="135">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <shape width="380" height="100" topLeftX="520" topLeftY="150" type="text" id="baF">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.7" list="bullet" listStyle="circle-hollow-square">
+          <ul>
+            <li>
+              <p>文章详情页底部显示相关文章区域</p>
+            </li>
+            <li>
+              <p>基于当前文章标签匹配相关文章</p>
+            </li>
+            <li>
+              <p>排除当前文章，最多显示3篇</p>
+            </li>
+            <li>
+              <p>无相关文章时不显示推荐区域</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+      <shape width="880" height="35" topLeftX="40" topLeftY="290" type="text" id="bad">
+        <content textType="sub-headline" fontSize="18" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>实现方案</p>
+        </content>
+      </shape>
+      <line id="baK" startX="40" startY="330" endX="120.00624975587843" endY="330">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <shape width="200" height="130" topLeftX="40" topLeftY="350" presetHandlers="0" type="rect" id="bax">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="180" height="25" topLeftX="50" topLeftY="365" type="text" id="bav">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>Step 1</p>
+        </content>
+      </shape>
+      <shape width="180" height="75" topLeftX="50" topLeftY="395" type="text" id="baj">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>使用 Ghost {{#get}} helper</p>
+          <p>查询 posts 资源</p>
+        </content>
+      </shape>
+      <line id="bar" startX="240" startY="415" endX="280.0124980474851" endY="415">
+        <border color="rgba(13, 19, 38, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="200" height="130" topLeftX="280" topLeftY="350" presetHandlers="0" type="rect" id="baf">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="180" height="25" topLeftX="290" topLeftY="365" type="text" id="baE">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" bold="true" textAlign="center">
+          <p>Step 2</p>
+        </content>
+      </shape>
+      <shape width="180" height="75" topLeftX="290" topLeftY="395" type="text" id="baR">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>filter 参数按标签过滤</p>
+          <p>limit=3 限制数量</p>
+        </content>
+      </shape>
+      <line id="baC" startX="480" startY="415" endX="520.0124980474851" endY="415">
+        <border color="rgba(13, 19, 38, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="200" height="130" topLeftX="520" topLeftY="350" presetHandlers="0" type="rect" id="baG">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="180" height="25" topLeftX="530" topLeftY="365" type="text" id="baV">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>Step 3</p>
+        </content>
+      </shape>
+      <shape width="180" height="75" topLeftX="530" topLeftY="395" type="text" id="baQ">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>排除当前文章 id</p>
+          <p>include=tags 获取标签</p>
+        </content>
+      </shape>
+      <line id="bah" startX="720" startY="415" endX="760.0124980474851" endY="415">
+        <border color="rgba(13, 19, 38, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="160" height="130" topLeftX="760" topLeftY="350" presetHandlers="0" type="rect" id="baP">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="140" height="25" topLeftX="770" topLeftY="365" type="text" id="bay">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" bold="true" textAlign="center">
+          <p>Step 4</p>
+        </content>
+      </shape>
+      <shape width="140" height="75" topLeftX="770" topLeftY="395" type="text" id="bat">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>自定义样式渲染</p>
+          <p>推荐卡片列表</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bau">
+      <content>
+        <p>第一项自主扩展功能是相关文章推荐。用户故事是：作为博客读者，希望在阅读完一篇文章后看到相关文章推荐，继续深入阅读。验收条件包括：文章详情页底部显示推荐区域、基于标签匹配、排除当前文章最多3篇、无相关文章时不显示。实现方案分四步：第一步使用Ghost的{{#get}} helper查询posts资源；第二步通过filter参数按当前文章标签过滤，limit=3限制数量；第三步排除当前文章id，include=tags获取标签信息；第四步用自定义样式渲染推荐卡片列表。核心文件是新增的partials/related-posts.hbs和在post.hbs中引入。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plL">
+    <style>
+      <fill id="flL">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bWQ">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="bWR">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>05 自主扩展功能二：阅读进度条</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="bWh">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共13页</p>
+        </content>
+      </shape>
+      <shape width="420" height="160" topLeftX="40" topLeftY="85" presetHandlers="0" type="rect" id="bWF">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="380" height="30" topLeftX="60" topLeftY="100" type="text" id="bWe">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>用户故事</p>
+        </content>
+      </shape>
+      <line id="bWD" startX="60" startY="135" endX="140.00624975587843" endY="135">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <shape width="380" height="80" topLeftX="60" topLeftY="150" type="text" id="bWg">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.7">
+          <p>作为博客读者，我希望在阅读长文章时能够看到当前的阅读进度，以便了解还剩多少内容，合理安排阅读时间。</p>
+        </content>
+      </shape>
+      <shape width="420" height="160" topLeftX="500" topLeftY="85" presetHandlers="0" type="rect" id="bWp">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="380" height="30" topLeftX="520" topLeftY="100" type="text" id="bWr">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>验收条件</p>
+        </content>
+      </shape>
+      <line id="bWU" startX="520" startY="135" endX="600.0062497558785" endY="135">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <shape width="380" height="80" topLeftX="520" topLeftY="150" type="text" id="bWC">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.7" list="bullet" listStyle="circle-hollow-square">
+          <ul>
+            <li>
+              <p>文章详情页顶部显示固定进度条</p>
+            </li>
+            <li>
+              <p>随页面滚动实时更新进度百分比</p>
+            </li>
+            <li>
+              <p>仅在文章详情页显示，列表页不显示</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+      <shape width="880" height="35" topLeftX="40" topLeftY="270" type="text" id="bWo">
+        <content textType="sub-headline" fontSize="18" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>实现原理</p>
+        </content>
+      </shape>
+      <line id="bWx" startX="40" startY="310" endX="120.00624975587843" endY="310">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <shape width="880" height="60" topLeftX="40" topLeftY="330" presetHandlers="0" type="rect" id="bWk">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="840" height="30" topLeftX="60" topLeftY="345" type="text" id="bWf">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="center">
+          <p>window.addEventListener(&apos;scroll&apos;, function() { ... }) 监听滚动事件</p>
+        </content>
+      </shape>
+      <line id="bWq" startX="479.99999999999994" startY="390" endX="479.99999999999994" endY="410.0249843945008">
+        <border color="rgba(13, 19, 38, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="880" height="60" topLeftX="40" topLeftY="410" presetHandlers="0" type="rect" id="bWc">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="840" height="30" topLeftX="60" topLeftY="425" type="text" id="bWH">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>progress = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100</p>
+        </content>
+      </shape>
+      <line id="bWy" startX="479.99999999999994" startY="470" endX="479.99999999999994" endY="490.0249843945008">
+        <border color="rgba(13, 19, 38, 1)"/>
+        <endArrow type="arrow"/>
+      </line>
+      <shape width="880" height="40" topLeftX="40" topLeftY="490" presetHandlers="0" type="rect" id="bWv">
+        <fill>
+          <fillColor color="rgba(191, 215, 255, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="840" height="25" topLeftX="60" topLeftY="498" type="text" id="bWN">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true" textAlign="center">
+          <p>document.getElementById(&apos;progress-bar&apos;).style.width = progress + &apos;%&apos;</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bWz">
+      <content>
+        <p>第二项自主扩展功能是阅读进度条。用户故事是：作为博客读者，希望在阅读长文章时看到当前阅读进度，了解还剩多少内容。验收条件包括：文章详情页顶部固定进度条、随滚动实时更新百分比、仅在详情页显示不在列表页显示。实现原理分三步：第一步用JavaScript的window.addEventListener监听scroll滚动事件；第二步计算进度百分比，公式是当前滚动位置除以文档总高度减去视口高度再乘以100；第三步通过DOM操作动态更新进度条的width样式。HTML结构放在default.hbs中，CSS样式在custom.css中定义，JavaScript代码内嵌在default.hbs的script标签中。进度条使用position:fixed固定在页面顶部，z-index设为较高值确保不被其他元素遮挡。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plJ">
+    <style>
+      <fill id="flJ">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bJc">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="bJy">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>演示数据</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="bWE">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共13页</p>
+        </content>
+      </shape>
+      <shape width="200" height="100" topLeftX="40" topLeftY="85" presetHandlers="0" type="rect" id="bWK">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="50" topLeftX="40" topLeftY="95" type="text" id="bWS">
+        <content textType="title" fontSize="48" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>8</p>
+        </content>
+      </shape>
+      <shape width="200" height="25" topLeftX="40" topLeftY="150" type="text" id="bJX">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>篇文章</p>
+        </content>
+      </shape>
+      <shape width="200" height="100" topLeftX="280" topLeftY="85" presetHandlers="0" type="rect" id="bJQ">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="50" topLeftX="280" topLeftY="95" type="text" id="bJh">
+        <content textType="title" fontSize="48" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>3</p>
+        </content>
+      </shape>
+      <shape width="200" height="25" topLeftX="280" topLeftY="150" type="text" id="bWj">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>个标签</p>
+        </content>
+      </shape>
+      <shape width="200" height="100" topLeftX="520" topLeftY="85" presetHandlers="0" type="rect" id="bWs">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="50" topLeftX="520" topLeftY="95" type="text" id="bWn">
+        <content textType="title" fontSize="48" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>2</p>
+        </content>
+      </shape>
+      <shape width="200" height="25" topLeftX="520" topLeftY="150" type="text" id="bJe">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>个会员</p>
+        </content>
+      </shape>
+      <shape width="160" height="100" topLeftX="760" topLeftY="85" presetHandlers="0" type="rect" id="bJg">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="50" topLeftX="760" topLeftY="95" type="text" id="bJU">
+        <content textType="title" fontSize="48" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>5</p>
+        </content>
+      </shape>
+      <shape width="160" height="25" topLeftX="760" topLeftY="150" type="text" id="bWt">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>条评论</p>
+        </content>
+      </shape>
+      <shape width="440" height="35" topLeftX="40" topLeftY="210" type="text" id="bWA">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>文章列表（覆盖技术/生活/数据库主题）</p>
+        </content>
+      </shape>
+      <line id="bWZ" startX="40" startY="245" endX="120.00624975587843" endY="245">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <table id="bJo" width="440" height="254" topLeftX="40" topLeftY="260">
+        <colgroup>
+          <col span="1" width="40"/>
+          <col span="1" width="300"/>
+          <col span="1" width="100"/>
+        </colgroup>
+        <tr height="30">
+          <td id="bWL">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>#</p>
+            </content>
+          </td>
+          <td id="bWw">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>标题</p>
+            </content>
+          </td>
+          <td id="bJO">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>标签</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bJq">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>1</p>
+            </content>
+          </td>
+          <td id="bJx">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>开源软件二次开发实践</p>
+            </content>
+          </td>
+          <td id="bJF">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>技术</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bWl">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>2</p>
+            </content>
+          </td>
+          <td id="bWP">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>Node.js性能优化技巧</p>
+            </content>
+          </td>
+          <td id="bWI">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>技术</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bJa">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>3</p>
+            </content>
+          </td>
+          <td id="bJN">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>SQLite数据库深入理解</p>
+            </content>
+          </td>
+          <td id="bJH">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>数据库</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bWu">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>4</p>
+            </content>
+          </td>
+          <td id="bWV">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>我的编程学习之路</p>
+            </content>
+          </td>
+          <td id="bWb">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>生活</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bJB">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>5</p>
+            </content>
+          </td>
+          <td id="bJz">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>关系型数据库设计原则</p>
+            </content>
+          </td>
+          <td id="bJR">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>数据库</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bJr">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>6</p>
+            </content>
+          </td>
+          <td id="bWd">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>前端开发工具链演进</p>
+            </content>
+          </td>
+          <td id="bWY">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>技术</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bWM">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>7</p>
+            </content>
+          </td>
+          <td id="bJW">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>读书笔记：代码整洁之道</p>
+            </content>
+          </td>
+          <td id="bJD">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>生活</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bWi">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>8</p>
+            </content>
+          </td>
+          <td id="bWT">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>MongoDB与SQLite对比分析</p>
+            </content>
+          </td>
+          <td id="bWm">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>数据库</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+      <shape width="400" height="35" topLeftX="520" topLeftY="210" type="text" id="bJp">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>边界情况覆盖</p>
+        </content>
+      </shape>
+      <line id="bJk" startX="520" startY="245" endX="600.0062497558785" endY="245">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <shape width="400" height="220" topLeftX="520" topLeftY="260" presetHandlers="0" type="rect" id="bJv">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="200" topLeftX="540" topLeftY="275" type="text" id="bWG">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.8" list="bullet" listStyle="circle-hollow-square">
+          <ul>
+            <li>
+              <p><strong><span color="rgba(37, 99, 235, 1)">长标题：</span></strong>&quot;开源软件二次开发实践：基于 Ghost 构建个人博客系统&quot;</p>
+            </li>
+            <li>
+              <p><strong><span color="rgba(37, 99, 235, 1)">无封面图：</span></strong>所有演示文章均无封面图</p>
+            </li>
+            <li>
+              <p><strong><span color="rgba(37, 99, 235, 1)">代码块：</span></strong>&quot;SQLite 数据库深入理解&quot;包含代码示例</p>
+            </li>
+            <li>
+              <p><strong><span color="rgba(37, 99, 235, 1)">中文搜索词：</span></strong>&quot;数据库&quot;、&quot;Node.js&quot;等关键词</p>
+            </li>
+            <li>
+              <p><strong><span color="rgba(37, 99, 235, 1)">空评论：</span></strong>部分文章评论数为 0</p>
+            </li>
+            <li>
+              <p><strong><span color="rgba(37, 99, 235, 1)">会员账号：</span></strong>张三 zhangsan@example.com、李四 lisi@example.com</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+    </data>
+    <note id="bJJ">
+      <content>
+        <p>演示数据包括8篇文章、3个标签（技术、生活、数据库）、2个会员（张三、李四）、5条评论。文章覆盖技术、生活、数据库等主题，每篇关联一个标签。边界情况覆盖包括：长标题、无封面图、代码块、中文搜索词、空评论等。会员账号通过数据库直接创建，Ghost会员默认使用魔法链接登录。评论数据分布在3篇文章上，由张三和李四各发表评论。这些演示数据足以支撑现场Live Demo的各项功能展示。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plm">
+    <style>
+      <fill id="flm">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bXU">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="bXG">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>06 测试结果</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="bXV">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共13页</p>
+        </content>
+      </shape>
+      <shape width="280" height="120" topLeftX="40" topLeftY="85" presetHandlers="0" type="rect" id="bXb">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="280" height="60" topLeftX="40" topLeftY="95" type="text" id="bea">
+        <content textType="title" fontSize="56" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>18</p>
+        </content>
+      </shape>
+      <shape width="280" height="30" topLeftX="40" topLeftY="160" type="text" id="bez">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>项测试全部通过</p>
+        </content>
+      </shape>
+      <shape width="560" height="120" topLeftX="360" topLeftY="85" presetHandlers="0" type="rect" id="beH">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="520" height="30" topLeftX="380" topLeftY="100" type="text" id="bXh">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>测试维度分布</p>
+        </content>
+      </shape>
+      <shape width="120" height="50" topLeftX="380" topLeftY="140" presetHandlers="0" type="rect" id="bXt">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="120" height="35" topLeftX="380" topLeftY="148" type="text" id="bXP">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>功能测试</p>
+          <p>8项</p>
+        </content>
+      </shape>
+      <shape width="120" height="50" topLeftX="520" topLeftY="140" presetHandlers="0" type="rect" id="bXI">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="120" height="35" topLeftX="520" topLeftY="148" type="text" id="beO">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>权限测试</p>
+          <p>4项</p>
+        </content>
+      </shape>
+      <shape width="120" height="50" topLeftX="660" topLeftY="140" presetHandlers="0" type="rect" id="beN">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="120" height="35" topLeftX="660" topLeftY="148" type="text" id="bXj">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>界面测试</p>
+          <p>4项</p>
+        </content>
+      </shape>
+      <shape width="100" height="50" topLeftX="800" topLeftY="140" presetHandlers="0" type="rect" id="bXL">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="100" height="35" topLeftX="800" topLeftY="148" type="text" id="bXw">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>恢复测试</p>
+          <p>2项</p>
+        </content>
+      </shape>
+      <shape width="880" height="35" topLeftX="40" topLeftY="230" type="text" id="beo">
+        <content textType="sub-headline" fontSize="18" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>关键测试用例</p>
+        </content>
+      </shape>
+      <line id="beq" startX="40" startY="270" endX="120.00624975587843" endY="270">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <table id="bex" width="880" height="200" topLeftX="40" topLeftY="285">
+        <colgroup>
+          <col span="1" width="80"/>
+          <col span="1" width="100"/>
+          <col span="2" width="300"/>
+          <col span="1" width="100"/>
+        </colgroup>
+        <tr height="32">
+          <td id="bek">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>编号</p>
+            </content>
+          </td>
+          <td id="bXf">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>类别</p>
+            </content>
+          </td>
+          <td id="bXE">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>测试项</p>
+            </content>
+          </td>
+          <td id="bXA">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>预期结果</p>
+            </content>
+          </td>
+          <td id="bXZ">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>状态</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bee">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>TC-F01</p>
+            </content>
+          </td>
+          <td id="bep">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>功能</p>
+            </content>
+          </td>
+          <td id="beU">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>首页文章列表</p>
+            </content>
+          </td>
+          <td id="bXC">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>显示8篇文章</p>
+            </content>
+          </td>
+          <td id="bXi">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>通过</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bXs">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>TC-F07</p>
+            </content>
+          </td>
+          <td id="bXn">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>功能</p>
+            </content>
+          </td>
+          <td id="beX">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>相关文章推荐</p>
+            </content>
+          </td>
+          <td id="beg">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>详情页显示3篇推荐</p>
+            </content>
+          </td>
+          <td id="beh">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>通过</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bXF">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>TC-F08</p>
+            </content>
+          </td>
+          <td id="bXd">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>功能</p>
+            </content>
+          </td>
+          <td id="bXK">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>阅读进度条</p>
+            </content>
+          </td>
+          <td id="bXS">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>随滚动实时更新</p>
+            </content>
+          </td>
+          <td id="beJ">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>通过</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="beQ">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>TC-P02</p>
+            </content>
+          </td>
+          <td id="bey">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>权限</p>
+            </content>
+          </td>
+          <td id="bXv">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>未登录用户限制</p>
+            </content>
+          </td>
+          <td id="bXu">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>管理API返回401</p>
+            </content>
+          </td>
+          <td id="bXT">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>通过</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bXm">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>TC-U03</p>
+            </content>
+          </td>
+          <td id="beW">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>界面</p>
+            </content>
+          </td>
+          <td id="bec">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>自定义404页面</p>
+            </content>
+          </td>
+          <td id="ber">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>返回404，中文提示</p>
+            </content>
+          </td>
+          <td id="bXk">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>通过</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="bXl">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>TC-R01</p>
+            </content>
+          </td>
+          <td id="bXY">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>恢复</p>
+            </content>
+          </td>
+          <td id="bXM">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>数据库备份</p>
+            </content>
+          </td>
+          <td id="beB">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>备份文件创建成功</p>
+            </content>
+          </td>
+          <td id="beD">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>通过</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+    </data>
+    <note id="beR">
+      <content>
+        <p>测试结果方面，共执行18项测试，全部通过。测试分为四个维度：功能测试8项（首页文章列表、文章详情页、标签页、搜索功能、会员功能、评论功能、相关文章推荐、阅读进度条）、权限测试4项（管理员后台访问、未登录用户限制、文章访问控制、会员专属内容）、界面测试4项（自定义主题导航、文章卡片样式、404页面、自定义页脚）、恢复测试2项（数据库备份、主题切换恢复）。关键测试用例包括相关文章推荐显示3篇、阅读进度条随滚动实时更新、未登录访问管理API返回401、自定义404页面返回404状态码等。主题gscan校验通过，兼容Ghost 5.x。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plA">
+    <style>
+      <fill id="flA">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="beV">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="beb">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>06 Git版本管理</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="boa">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共13页</p>
+        </content>
+      </shape>
+      <shape width="200" height="80" topLeftX="40" topLeftY="85" presetHandlers="0" type="rect" id="boN">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="40" topLeftX="40" topLeftY="95" type="text" id="boH">
+        <content textType="title" fontSize="36" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>10</p>
+        </content>
+      </shape>
+      <shape width="200" height="25" topLeftX="40" topLeftY="135" type="text" id="bok">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>个非合并Commit</p>
+        </content>
+      </shape>
+      <shape width="200" height="80" topLeftX="280" topLeftY="85" presetHandlers="0" type="rect" id="beE">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="40" topLeftX="280" topLeftY="95" type="text" id="beA">
+        <content textType="title" fontSize="36" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>2</p>
+        </content>
+      </shape>
+      <shape width="200" height="25" topLeftX="280" topLeftY="135" type="text" id="beZ">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>个Issue</p>
+        </content>
+      </shape>
+      <shape width="200" height="80" topLeftX="520" topLeftY="85" presetHandlers="0" type="rect" id="boe">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="200" height="40" topLeftX="520" topLeftY="95" type="text" id="bog">
+        <content textType="title" fontSize="36" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>1</p>
+        </content>
+      </shape>
+      <shape width="200" height="25" topLeftX="520" topLeftY="135" type="text" id="boy">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>个PR + 1次Review</p>
+        </content>
+      </shape>
+      <shape width="160" height="80" topLeftX="760" topLeftY="85" presetHandlers="0" type="rect" id="beC">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="160" height="40" topLeftX="760" topLeftY="95" type="text" id="bef">
+        <content textType="title" fontSize="36" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>v1.0</p>
+        </content>
+      </shape>
+      <shape width="160" height="25" topLeftX="760" topLeftY="135" type="text" id="bej">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" textAlign="center">
+          <p>版本标签</p>
+        </content>
+      </shape>
+      <shape width="880" height="35" topLeftX="40" topLeftY="190" type="text" id="beL">
+        <content textType="sub-headline" fontSize="18" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>Commit历史</p>
+        </content>
+      </shape>
+      <line id="bew" startX="40" startY="230" endX="120.00624975587843" endY="230">
+        <border color="rgba(37, 99, 235, 1)"/>
+      </line>
+      <table id="boo" width="880" height="240" topLeftX="40" topLeftY="245">
+        <colgroup>
+          <col span="1" width="100"/>
+          <col span="1" width="80"/>
+          <col span="1" width="500"/>
+          <col span="1" width="200"/>
+        </colgroup>
+        <tr height="30">
+          <td id="bop">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>Commit</p>
+            </content>
+          </td>
+          <td id="boh">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>类型</p>
+            </content>
+          </td>
+          <td id="bev">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>说明</p>
+            </content>
+          </td>
+          <td id="bed">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>文件数</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="26">
+          <td id="beK">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>034c978</p>
+            </content>
+          </td>
+          <td id="beS">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>chore</p>
+            </content>
+          </td>
+          <td id="boJ">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>初始化项目骨架和.gitignore配置</p>
+            </content>
+          </td>
+          <td id="boc">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>1</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="26">
+          <td id="boC">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>264767a</p>
+            </content>
+          </td>
+          <td id="beF">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>docs</p>
+            </content>
+          </td>
+          <td id="bei">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>添加基线记录和架构文档</p>
+            </content>
+          </td>
+          <td id="bes">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>2</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="26">
+          <td id="ben">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>651eef0</p>
+            </content>
+          </td>
+          <td id="boX">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>feat</p>
+            </content>
+          </td>
+          <td id="boQ">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>开发自定义主题oss-blog-theme v1.0.0</p>
+            </content>
+          </td>
+          <td id="bel">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>51</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="26">
+          <td id="beY">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>da92c22</p>
+            </content>
+          </td>
+          <td id="beM">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>feat</p>
+            </content>
+          </td>
+          <td id="boB">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>实现自主扩展功能并添加Issue文档</p>
+            </content>
+          </td>
+          <td id="boz">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>1</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="26">
+          <td id="boR">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>9f76131</p>
+            </content>
+          </td>
+          <td id="bov">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>test</p>
+            </content>
+          </td>
+          <td id="beu">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>添加测试报告，18项测试全部通过</p>
+            </content>
+          </td>
+          <td id="beT">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>1</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="26">
+          <td id="bem">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>5c4056c</p>
+            </content>
+          </td>
+          <td id="boW">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>docs</p>
+            </content>
+          </td>
+          <td id="boD">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>添加README项目说明文档</p>
+            </content>
+          </td>
+          <td id="bor">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>1</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="26">
+          <td id="boF">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>ece6ef6</p>
+            </content>
+          </td>
+          <td id="bet">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>docs</p>
+            </content>
+          </td>
+          <td id="beP">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>添加PR和Code Review文档</p>
+            </content>
+          </td>
+          <td id="beI">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>2</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="28">
+          <td id="boO">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>cd7a6c7</p>
+            </content>
+          </td>
+          <td id="boq">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>docs</p>
+            </content>
+          </td>
+          <td id="box">
+            <content fontSize="10" fontFamily="思源黑体" textAlign="left">
+              <p>补充实验文档、脚本和测试证据</p>
+            </content>
+          </td>
+          <td id="boU">
+            <content fontSize="10" fontFamily="思源黑体">
+              <p>21</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+    </data>
+    <note id="beG">
+      <content>
+        <p>Git版本管理方面，项目使用Git进行版本控制，main分支为主分支，feature/blog-enhancement为功能分支。共10个非合并Commit，覆盖chore、docs、feat、test四种类型。2个Issue记录了自主扩展功能的用户故事和验收条件。1个Pull Request将feature分支合并到main，包含完整的变更清单和测试结果。1次Code Review覆盖功能正确性、代码质量、安全性、可维护性四个维度。版本标签v1.0-lab标记实验交付版本。分支策略遵循Git Flow规范，功能开发在feature分支完成，测试通过后合并到main。所有Commit信息清晰可追溯，符合实验要求的至少5个非合并Commit标准。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plw">
+    <style>
+      <fill id="flw">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bJE">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="bJA">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>问题与解决</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="bXa">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共13页</p>
+        </content>
+      </shape>
+      <table id="bJi" width="880" height="420" topLeftX="40" topLeftY="85">
+        <colgroup>
+          <col span="1" width="40"/>
+          <col span="1" width="200"/>
+          <col span="2" width="320"/>
+        </colgroup>
+        <tr height="38">
+          <td id="bJs">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>#</p>
+            </content>
+          </td>
+          <td id="bXO">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>问题</p>
+            </content>
+          </td>
+          <td id="bJd">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>原因分析</p>
+            </content>
+          </td>
+          <td id="bJK">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>解决方案</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="64">
+          <td id="bJw">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>1</p>
+            </content>
+          </td>
+          <td id="bXe">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>Ghost CLI安装失败</p>
+            </content>
+          </td>
+          <td id="bJu">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>CLI误检测到不存在的ghost@6.62.0，--version参数无效</p>
+            </content>
+          </td>
+          <td id="bJT">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>手动下载Ghost 5.130.6 tgz解压安装，建立current junction</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="64">
+          <td id="bJm">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>2</p>
+            </content>
+          </td>
+          <td id="bJZ">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>sqlite3编译失败</p>
+            </content>
+          </td>
+          <td id="bXX">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>系统无Visual Studio，sqlite3源码编译失败</p>
+            </content>
+          </td>
+          <td id="bJl">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>从GitHub releases下载预编译二进制，手动放置到build/Release</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="64">
+          <td id="bJY">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>3</p>
+            </content>
+          </td>
+          <td id="bJM">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>express-hbs路径问题</p>
+            </content>
+          </td>
+          <td id="bJn">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>Windows上cacheLayout函数相对路径与绝对路径比较失败</p>
+            </content>
+          </td>
+          <td id="bXJ">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>手动修改hbs.js，改用path.resolve()规范化后比较</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="64">
+          <td id="bJG">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>4</p>
+            </content>
+          </td>
+          <td id="bJV">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>登录验证码问题</p>
+            </content>
+          </td>
+          <td id="bJb">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>Ghost 5.x默认启用新设备登录验证码，需邮箱验证</p>
+            </content>
+          </td>
+          <td id="bJS">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>config中设置security.staffDeviceVerification=false禁用验证码</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="64">
+          <td id="bJt">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>5</p>
+            </content>
+          </td>
+          <td id="bJP">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>邮件服务未配置</p>
+            </content>
+          </td>
+          <td id="bJI">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>本地环境无SMTP服务器，会员邮件发送失败</p>
+            </content>
+          </td>
+          <td id="bXW">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>启动本地假SMTP服务器(端口2525)，配置Ghost使用该SMTP</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="62">
+          <td id="bJf">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>6</p>
+            </content>
+          </td>
+          <td id="bJj">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>登录次数锁定</p>
+            </content>
+          </td>
+          <td id="bJL">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>多次错误密码触发暴力破解保护，锁定10分钟</p>
+            </content>
+          </td>
+          <td id="bXB">
+            <content fontSize="11" fontFamily="思源黑体" textAlign="left">
+              <p>清除数据库brute表和sessions表，重启Ghost服务</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+    </data>
+    <note id="bJC">
+      <content>
+        <p>实验过程中遇到了多个技术问题，都已逐一解决。主要问题包括：Ghost CLI安装失败，原因是CLI误检测到不存在的版本，解决方案是手动下载解压安装；sqlite3编译失败，原因是系统无Visual Studio，解决方案是下载预编译二进制；express-hbs路径问题，原因是Windows上路径比较失败，解决方案是改用path.resolve规范化；登录验证码问题，原因是Ghost 5.x默认启用设备验证，解决方案是在配置中禁用；邮件服务未配置，原因是本地无SMTP服务器，解决方案是启动假SMTP服务器；登录次数锁定，原因是暴力破解保护，解决方案是清除brute和sessions表。这些问题的解决过程体现了开源软件二次开发中常见的环境配置和兼容性挑战。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plX">
+    <style>
+      <fill id="flX">
+        <fillColor color="linear-gradient(135deg,rgba(13, 19, 38, 1) 0%,rgba(37, 99, 235, 1) 100%)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="6" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bXR">
+        <fill>
+          <fillColor color="rgba(191, 215, 255, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="800" height="60" topLeftX="80" topLeftY="60" type="text" id="bXp">
+        <content textType="headline" fontSize="36" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>总结与展望</p>
+        </content>
+      </shape>
+      <line id="bXr" startX="430" startY="130" endX="530.0049998750062" endY="130">
+        <border color="rgba(191, 215, 255, 1)" width="3"/>
+      </line>
+      <shape width="400" height="160" topLeftX="60" topLeftY="160" presetHandlers="0" type="rect" id="bXz">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 0.1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 0.5)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="30" topLeftX="80" topLeftY="175" type="text" id="bXg">
+        <content textType="sub-headline" fontSize="18" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" bold="true">
+          <p>实验成果</p>
+        </content>
+      </shape>
+      <shape width="360" height="100" topLeftX="80" topLeftY="210" type="text" id="bXc">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" lineSpacing="multiple:1.6" list="bullet" listStyle="circle-hollow-square">
+          <ul>
+            <li>
+              <p>成功安装运行 Ghost 5.130.6</p>
+            </li>
+            <li>
+              <p>开发自定义主题 oss-blog-theme</p>
+            </li>
+            <li>
+              <p>实现2项自主扩展功能</p>
+            </li>
+            <li>
+              <p>18项测试全部通过</p>
+            </li>
+            <li>
+              <p>完整Git版本管理（10 Commit）</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+      <shape width="400" height="160" topLeftX="500" topLeftY="160" presetHandlers="0" type="rect" id="bXx">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 0.1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 0.5)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="360" height="30" topLeftX="520" topLeftY="175" type="text" id="bXo">
+        <content textType="sub-headline" fontSize="18" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" bold="true">
+          <p>收获与体会</p>
+        </content>
+      </shape>
+      <shape width="360" height="100" topLeftX="520" topLeftY="210" type="text" id="bXD">
+        <content fontSize="13" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" lineSpacing="multiple:1.6" list="bullet" listStyle="circle-hollow-square">
+          <ul>
+            <li>
+              <p>掌握开源项目获取与分析方法</p>
+            </li>
+            <li>
+              <p>理解Ghost主题开发与扩展机制</p>
+            </li>
+            <li>
+              <p>提升问题排查与解决能力</p>
+            </li>
+            <li>
+              <p>实践Git协作流程（Issue/PR/Review）</p>
+            </li>
+            <li>
+              <p>学会编写完整测试与项目文档</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+      <shape width="800" height="35" topLeftX="80" topLeftY="350" type="text" id="bXH">
+        <content textType="sub-headline" fontSize="18" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" bold="true" textAlign="center">
+          <p>后续改进方向</p>
+        </content>
+      </shape>
+      <line id="bXy" startX="430" startY="390" endX="530.0049998750062" endY="390">
+        <border color="rgba(191, 215, 255, 1)"/>
+      </line>
+      <shape width="800" height="80" topLeftX="80" topLeftY="410" type="text" id="bXq">
+        <content fontSize="14" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" lineSpacing="multiple:1.8" textAlign="center">
+          <p>增加自动化测试（Playwright/Cypress）· 实现会员账号密码登录 · 补充多标签文章场景</p>
+          <p>推送GitHub远程仓库 · 深入RealWorld API规范 · 优化相关文章推荐缓存机制</p>
+        </content>
+      </shape>
+      <shape width="800" height="30" topLeftX="80" topLeftY="500" type="text" id="bXQ">
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" bold="true" textAlign="center">
+          <p>感谢聆听 · 欢迎提问</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bXN">
+      <content>
+        <p>最后进行总结与展望。实验成果方面：成功安装运行Ghost 5.130.6，开发了自定义主题oss-blog-theme，实现了相关文章推荐和阅读进度条两项自主扩展功能，18项测试全部通过，建立了完整的Git版本管理（10个非合并Commit、2个Issue、1个PR、1次Code Review、v1.0-lab标签）。收获与体会方面：掌握了开源项目获取与分析方法，理解了Ghost主题开发与扩展机制，提升了问题排查与解决能力，实践了Git协作流程，学会了编写完整测试与项目文档。后续改进方向包括：增加自动化测试、实现会员账号密码登录、补充多标签文章场景、推送GitHub远程仓库、深入RealWorld API规范、优化相关文章推荐缓存机制。感谢各位老师和同学的聆听，欢迎提问。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plj">
+    <style>
+      <fill id="flj">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="boI">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="boS">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>上游基线与本人修改对比</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="bqa">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共17页</p>
+        </content>
+      </shape>
+      <table id="bqX" width="880" height="380" topLeftX="40" topLeftY="85">
+        <colgroup>
+          <col span="1" width="140"/>
+          <col span="1" width="320"/>
+          <col span="1" width="420"/>
+        </colgroup>
+        <tr height="41">
+          <td id="bqQ">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>模块</p>
+            </content>
+          </td>
+          <td id="boK">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>上游基线（Ghost 5.130.6）</p>
+            </content>
+          </td>
+          <td id="bom">
+            <fill>
+              <fillColor color="rgba(37, 99, 235, 1)"/>
+            </fill>
+            <content fontSize="12" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>本人修改（oss-blog v1.0）</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="57">
+          <td id="bqO">
+            <content fontSize="11" fontFamily="思源黑体" bold="true">
+              <p>核心代码</p>
+            </content>
+          </td>
+          <td id="bqJ">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>完整Ghost核心，认证/内容/会员/评论/搜索</p>
+            </content>
+          </td>
+          <td id="bqq">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="left">
+              <p>未修改核心代码，遵循二次开发边界</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="57">
+          <td id="bqc">
+            <content fontSize="11" fontFamily="思源黑体" bold="true">
+              <p>默认主题</p>
+            </content>
+          </td>
+          <td id="boL">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>Casper 5.9.0，标准导航/卡片/详情页</p>
+            </content>
+          </td>
+          <td id="boM">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="left">
+              <p>oss-blog-theme，自定义导航/卡片/404页/页脚</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="57">
+          <td id="boZ">
+            <content fontSize="11" fontFamily="思源黑体" bold="true">
+              <p>文章推荐</p>
+            </content>
+          </td>
+          <td id="bow">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>无相关文章推荐功能</p>
+            </content>
+          </td>
+          <td id="bqW">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="left">
+              <p>新增相关文章推荐，基于标签匹配显示3篇</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="57">
+          <td id="bqo">
+            <content fontSize="11" fontFamily="思源黑体" bold="true">
+              <p>阅读体验</p>
+            </content>
+          </td>
+          <td id="bqD">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>无阅读进度指示</p>
+            </content>
+          </td>
+          <td id="boA">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="left">
+              <p>新增阅读进度条，随滚动实时更新百分比</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="57">
+          <td id="bob">
+            <content fontSize="11" fontFamily="思源黑体" bold="true">
+              <p>安全配置</p>
+            </content>
+          </td>
+          <td id="bon">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>默认启用新设备登录验证码</p>
+            </content>
+          </td>
+          <td id="bqB">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="left">
+              <p>禁用设备验证，配置本地假SMTP服务器</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="54">
+          <td id="bqe">
+            <content fontSize="11" fontFamily="思源黑体" bold="true">
+              <p>项目文档</p>
+            </content>
+          </td>
+          <td id="bqz">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="left">
+              <p>Ghost官方文档，无实验文档</p>
+            </content>
+          </td>
+          <td id="bqg">
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true" textAlign="left">
+              <p>新增README/NOTICE/实验报告/测试报告等11份文档</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+      <shape width="880" height="40" topLeftX="40" topLeftY="480" type="text" id="bqN">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" textAlign="center">
+          <p>修改边界：所有二次开发均在主题层和配置层，未修改Ghost核心代码，保证升级兼容性</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bos">
+      <content>
+        <p>这一页对比上游基线和本人修改。上游基线是Ghost 5.130.6，包含完整的核心功能和Casper默认主题。本人修改主要在四个方面：一是自定义主题oss-blog-theme，修改了导航、文章卡片、404页面和页脚；二是新增相关文章推荐功能，基于标签匹配显示3篇相关文章；三是新增阅读进度条，随页面滚动实时更新；四是安全配置优化，禁用登录设备验证，配置本地假SMTP服务器。核心代码完全未修改，遵循二次开发边界，保证了未来升级Ghost版本时的兼容性。项目文档方面新增了README、NOTICE、实验报告、测试报告等11份文档。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plT">
+    <style>
+      <fill id="flT">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bou">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="boi">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>核心代码展示</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="boj">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共17页</p>
+        </content>
+      </shape>
+      <shape width="420" height="30" topLeftX="40" topLeftY="80" type="text" id="boV">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>相关文章推荐（Handlebars模板）</p>
+        </content>
+      </shape>
+      <shape width="420" height="240" topLeftX="40" topLeftY="115" presetHandlers="0" type="rect" id="boT">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="390" height="220" topLeftX="55" topLeftY="125" type="text" id="bof">
+        <content fontSize="10" fontFamily="Consolas" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.4">
+          <p>{{#get &quot;posts&quot; filter=&quot;tags:[{{primary_tag.slug}}]+id:-{{id}}&quot; limit=&quot;3&quot; include=&quot;tags&quot; as |related|}}</p>
+          <p>{{#if related}}</p>
+          <p>&lt;section class=&quot;related-posts&quot;&gt;</p>
+          <p>&lt;h3&gt;相关文章推荐&lt;/h3&gt;</p>
+          <p>&lt;div class=&quot;related-grid&quot;&gt;</p>
+          <p>{{#foreach related}}</p>
+          <p>&lt;a class=&quot;related-card&quot; href=&quot;{{url}}&quot;&gt;</p>
+          <p>&lt;h4&gt;{{title}}&lt;/h4&gt;</p>
+          <p>&lt;span&gt;{{date format=&quot;YYYY年MM月DD日&quot;}}&lt;/span&gt;</p>
+          <p>&lt;/a&gt;</p>
+          <p>{{/foreach}}</p>
+          <p>&lt;/div&gt;</p>
+          <p>&lt;/section&gt;</p>
+          <p>{{/if}}</p>
+          <p>{{/get}}</p>
+        </content>
+      </shape>
+      <shape width="420" height="30" topLeftX="500" topLeftY="80" type="text" id="bol">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>阅读进度条（JavaScript）</p>
+        </content>
+      </shape>
+      <shape width="420" height="240" topLeftX="500" topLeftY="115" presetHandlers="0" type="rect" id="bod">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="390" height="220" topLeftX="515" topLeftY="125" type="text" id="boE">
+        <content fontSize="10" fontFamily="Consolas" color="rgba(191, 215, 255, 1)" lineSpacing="multiple:1.4">
+          <p>// 阅读进度条</p>
+          <p>window.addEventListener(&apos;scroll&apos;, function() {</p>
+          <p>const scrollTop = window.scrollY;</p>
+          <p>const docHeight = document.body.scrollHeight;</p>
+          <p>const winHeight = window.innerHeight;</p>
+          <p>const scrollPercent = (scrollTop /</p>
+          <p>(docHeight - winHeight)) * 100;</p>
+          <p>const bar = document.getElementById(</p>
+          <p>&apos;reading-progress-bar&apos;);</p>
+          <p>if (bar) {</p>
+          <p>bar.style.width = scrollPercent + &apos;%&apos;;</p>
+          <p>}</p>
+          <p>});</p>
+          <p>// 仅在文章详情页显示</p>
+          <p>if (document.body.classList.contains(</p>
+          <p>&apos;post-template&apos;)) { ... }</p>
+        </content>
+      </shape>
+      <shape width="880" height="30" topLeftX="40" topLeftY="375" type="text" id="boP">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>关键配置（config.development.json）</p>
+        </content>
+      </shape>
+      <shape width="880" height="110" topLeftX="40" topLeftY="410" presetHandlers="0" type="rect" id="boY">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="840" height="90" topLeftX="60" topLeftY="420" type="text" id="bot">
+        <content fontSize="12" fontFamily="Consolas" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.6">
+          <p><strong><span color="rgba(37, 99, 235, 1)">&quot;security&quot;</span></strong>: { <strong><span color="rgba(37, 99, 235, 1)">&quot;staffDeviceVerification&quot;</span></strong>: <span color="rgba(200, 50, 50, 1)">false</span> } <span color="rgba(13, 19, 38, 1)">// 禁用登录验证码</span></p>
+          <p><strong><span color="rgba(37, 99, 235, 1)">&quot;mail&quot;</span></strong>: { <strong><span color="rgba(37, 99, 235, 1)">&quot;transport&quot;</span></strong>: <span color="rgba(200, 50, 50, 1)">&quot;SMTP&quot;</span>, <strong><span color="rgba(37, 99, 235, 1)">&quot;options&quot;</span></strong>: { <strong><span color="rgba(37, 99, 235, 1)">&quot;host&quot;</span></strong>: <span color="rgba(200, 50, 50, 1)">&quot;127.0.0.1&quot;</span>, <strong><span color="rgba(37, 99, 235, 1)">&quot;port&quot;</span></strong>: <span color="rgba(200, 50, 50, 1)">2525</span> } } <span color="rgba(13, 19, 38, 1)">// 本地假SMTP</span></p>
+          <p><strong><span color="rgba(37, 99, 235, 1)">&quot;database&quot;</span></strong>: { <strong><span color="rgba(37, 99, 235, 1)">&quot;client&quot;</span></strong>: <span color="rgba(200, 50, 50, 1)">&quot;sqlite3&quot;</span>, <strong><span color="rgba(37, 99, 235, 1)">&quot;connection&quot;</span></strong>: { <strong><span color="rgba(37, 99, 235, 1)">&quot;filename&quot;</span></strong>: <span color="rgba(200, 50, 50, 1)">&quot;content/data/ghost.db&quot;</span> } }</p>
+        </content>
+      </shape>
+    </data>
+    <note id="boG">
+      <content>
+        <p>这一页展示核心代码。左侧是相关文章推荐的Handlebars模板代码，核心是使用Ghost的{{#get}} helper查询posts资源，通过filter参数按当前文章标签过滤，用id:-{{id}}排除当前文章，limit=3限制数量，include=tags获取标签信息。右侧是阅读进度条的JavaScript代码，核心是监听window的scroll事件，计算当前滚动位置占文档总高度的百分比，然后动态更新进度条的width样式，并且只在post-template页面显示。底部是关键配置文件，包括禁用登录设备验证、配置本地假SMTP服务器、SQLite数据库配置。这些代码展示了二次开发的核心实现，都在主题层和配置层，未修改Ghost核心代码。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plK">
+    <style>
+      <fill id="flK">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bqp">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="bqx">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>Live Demo 演示流程（5-10分钟）</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="bqi">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共17页</p>
+        </content>
+      </shape>
+      <shape width="60" height="60" topLeftX="40" topLeftY="85" presetHandlers="0" type="rect" id="bqK">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="60" height="40" topLeftX="40" topLeftY="95" type="text" id="bqk">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>1</p>
+        </content>
+      </shape>
+      <shape width="800" height="25" topLeftX="120" topLeftY="90" type="text" id="bqu">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>会员登录与搜索（约1分钟）</p>
+        </content>
+      </shape>
+      <shape width="800" height="30" topLeftX="120" topLeftY="115" type="text" id="bqd">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>使用会员账号（zhangsan@example.com）登录，搜索中文关键词&quot;数据库&quot;，展示搜索结果和文章跳转</p>
+        </content>
+      </shape>
+      <line id="bqU" startX="70" startY="150" endX="70" endY="175.0199920063936">
+        <border color="rgba(191, 215, 255, 1)"/>
+      </line>
+      <shape width="60" height="60" topLeftX="40" topLeftY="175" presetHandlers="0" type="rect" id="bql">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="60" height="40" topLeftX="40" topLeftY="185" type="text" id="bqT">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>2</p>
+        </content>
+      </shape>
+      <shape width="800" height="25" topLeftX="120" topLeftY="180" type="text" id="bqh">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>管理员发布文章（约2分钟）</p>
+        </content>
+      </shape>
+      <shape width="800" height="30" topLeftX="120" topLeftY="205" type="text" id="bqG">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>切换到管理员（admin@example.com）发布一篇带标签的新文章，返回前台验证文章显示和标签筛选</p>
+        </content>
+      </shape>
+      <line id="bqY" startX="69.99999999999997" startY="240" endX="69.99999999999997" endY="265.0199920063936">
+        <border color="rgba(191, 215, 255, 1)"/>
+      </line>
+      <shape width="60" height="60" topLeftX="40" topLeftY="265" presetHandlers="0" type="rect" id="bqy">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="60" height="40" topLeftX="40" topLeftY="275" type="text" id="bqt">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>3</p>
+        </content>
+      </shape>
+      <shape width="800" height="25" topLeftX="120" topLeftY="270" type="text" id="bqV">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>会员评论与权限展示（约1分钟）</p>
+        </content>
+      </shape>
+      <shape width="800" height="30" topLeftX="120" topLeftY="295" type="text" id="bqP">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>会员发表评论，展示评论权限控制；演示匿名用户无法评论的错误状态提示</p>
+        </content>
+      </shape>
+      <line id="bqr" startX="70" startY="330" endX="70" endY="355.0199920063936">
+        <border color="rgba(191, 215, 255, 1)"/>
+      </line>
+      <shape width="60" height="60" topLeftX="40" topLeftY="355" presetHandlers="0" type="rect" id="bqC">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="60" height="40" topLeftX="40" topLeftY="365" type="text" id="bqf">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>4</p>
+        </content>
+      </shape>
+      <shape width="800" height="25" topLeftX="120" topLeftY="360" type="text" id="bqR">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>自主功能展示（约2分钟）</p>
+        </content>
+      </shape>
+      <shape width="800" height="30" topLeftX="120" topLeftY="385" type="text" id="bqF">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>触发相关文章推荐和阅读进度条功能，展示对应Issue、核心代码和测试结果</p>
+        </content>
+      </shape>
+      <line id="bqj" startX="70" startY="420" endX="70" endY="445.0199920063936">
+        <border color="rgba(191, 215, 255, 1)"/>
+      </line>
+      <shape width="60" height="60" topLeftX="40" topLeftY="445" presetHandlers="0" type="rect" id="bqA">
+        <fill>
+          <fillColor color="rgba(37, 99, 235, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="60" height="40" topLeftX="40" topLeftY="455" type="text" id="bqH">
+        <content textType="title" fontSize="28" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true" textAlign="center">
+          <p>5</p>
+        </content>
+      </shape>
+      <shape width="800" height="25" topLeftX="120" topLeftY="450" type="text" id="bqv">
+        <content fontSize="15" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>Git证据与备份说明（约1分钟）</p>
+        </content>
+      </shape>
+      <shape width="800" height="30" topLeftX="120" topLeftY="475" type="text" id="bqE">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+          <p>查看Git PR与个人贡献证据，说明数据库备份位置和内容导出恢复方法</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bqs">
+      <content>
+        <p>这一页说明5-10分钟Live Demo的演示流程，共5个步骤。第一步是会员登录与搜索，约1分钟，使用会员账号登录，搜索中文关键词&quot;数据库&quot;，展示搜索结果和文章跳转。第二步是管理员发布文章，约2分钟，切换到管理员发布一篇带标签的新文章，返回前台验证。第三步是会员评论与权限展示，约1分钟，会员发表评论，展示评论权限控制和匿名用户无法评论的错误状态。第四步是自主功能展示，约2分钟，触发相关文章推荐和阅读进度条，展示对应Issue、核心代码和测试结果。第五步是Git证据与备份说明，约1分钟，查看Git PR与个人贡献，说明数据库备份和内容导出恢复方法。整个Demo控制在5-10分钟内，覆盖登录、文章、标签、评论、搜索和自主功能的完整主流程。</p>
+      </content>
+    </note>
+  </slide>
+  <slide id="plC">
+    <style>
+      <fill id="flC">
+        <fillColor color="rgba(242, 244, 248, 1)"/>
+      </fill>
+    </style>
+    <data>
+      <shape width="960" height="60" topLeftX="0" topLeftY="0" presetHandlers="0" type="rect" id="bqb">
+        <fill>
+          <fillColor color="rgba(13, 19, 38, 1)"/>
+        </fill>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="600" height="40" topLeftX="40" topLeftY="12" type="text" id="bqn">
+        <content textType="headline" fontSize="22" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+          <p>技术取舍与未解决风险</p>
+        </content>
+      </shape>
+      <shape width="170" height="30" topLeftX="750" topLeftY="18" type="text" id="bNa">
+        <content textType="caption" fontSize="12" fontFamily="思源黑体" color="rgba(191, 215, 255, 1)" textAlign="right">
+          <p>实验01 / 共17页</p>
+        </content>
+      </shape>
+      <shape width="420" height="30" topLeftX="40" topLeftY="80" type="text" id="bNX">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+          <p>关键技术取舍</p>
+        </content>
+      </shape>
+      <table id="bNN" width="420" height="200" topLeftX="40" topLeftY="115">
+        <colgroup>
+          <col span="1" width="100"/>
+          <col span="2" width="160"/>
+        </colgroup>
+        <tr height="33">
+          <td id="bNq">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>决策点</p>
+            </content>
+          </td>
+          <td id="bND">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>选择方案</p>
+            </content>
+          </td>
+          <td id="bNc">
+            <fill>
+              <fillColor color="rgba(13, 19, 38, 1)"/>
+            </fill>
+            <content fontSize="11" fontFamily="思源黑体" color="rgba(255, 255, 255, 1)" bold="true">
+              <p>放弃方案</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="42">
+          <td id="bNx">
+            <content fontSize="10" fontFamily="思源黑体" bold="true">
+              <p>开发路线</p>
+            </content>
+          </td>
+          <td id="bqL">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>Ghost主题层</p>
+            </content>
+          </td>
+          <td id="bqm">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>修改Ghost核心</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="42">
+          <td id="bqw">
+            <content fontSize="10" fontFamily="思源黑体" bold="true">
+              <p>数据库</p>
+            </content>
+          </td>
+          <td id="bNW">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>SQLite本地</p>
+            </content>
+          </td>
+          <td id="bNo">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>MySQL远程</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="42">
+          <td id="bNp">
+            <content fontSize="10" fontFamily="思源黑体" bold="true">
+              <p>搜索实现</p>
+            </content>
+          </td>
+          <td id="bqM">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>Ghost原生搜索</p>
+            </content>
+          </td>
+          <td id="bqZ">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>自建全文索引</p>
+            </content>
+          </td>
+        </tr>
+        <tr height="41">
+          <td id="bNB">
+            <content fontSize="10" fontFamily="思源黑体" bold="true">
+              <p>邮件服务</p>
+            </content>
+          </td>
+          <td id="bNe">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(37, 99, 235, 1)" bold="true">
+              <p>本地假SMTP</p>
+            </content>
+          </td>
+          <td id="bNz">
+            <content fontSize="10" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)">
+              <p>真实SMTP服务</p>
+            </content>
+          </td>
+        </tr>
+      </table>
+      <shape width="420" height="30" topLeftX="500" topLeftY="80" type="text" id="bNQ">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(200, 50, 50, 1)" bold="true">
+          <p>未解决风险与限制</p>
+        </content>
+      </shape>
+      <shape width="420" height="200" topLeftX="500" topLeftY="115" presetHandlers="0" type="rect" id="bNH">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(200, 50, 50, 0.3)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="380" height="170" topLeftX="520" topLeftY="130" type="text" id="bqI">
+        <content fontSize="11" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" list="bullet" listStyle="circle-hollow-square">
+          <ul>
+            <li>
+              <p><strong><span color="rgba(200, 50, 50, 1)">node_modules手动修改</span></strong>：express-hbs和sqlite3的修复在重新安装依赖后会丢失，需记录修复步骤</p>
+            </li>
+            <li>
+              <p><strong><span color="rgba(200, 50, 50, 1)">会员注册流程</span></strong>：Ghost会员默认魔法链接登录，无传统用户名密码注册，演示时需说明</p>
+            </li>
+            <li>
+              <p><strong><span color="rgba(200, 50, 50, 1)">搜索中文分词</span></strong>：Ghost原生搜索对中文分词支持有限，长句搜索可能漏匹配</p>
+            </li>
+            <li>
+              <p><strong><span color="rgba(200, 50, 50, 1)">生产环境未验证</span></strong>：当前仅在本地开发环境验证，生产部署需额外配置SSL和反向代理</p>
+            </li>
+            <li>
+              <p><strong><span color="rgba(200, 50, 50, 1)">GitHub远程未推送</span></strong>：当前仅有本地Git仓库，需创建远程仓库并推送完整历史</p>
+            </li>
+          </ul>
+        </content>
+      </shape>
+      <shape width="880" height="30" topLeftX="40" topLeftY="340" type="text" id="bqS">
+        <content textType="sub-headline" fontSize="16" fontFamily="思源黑体" color="rgba(13, 19, 38, 1)" bold="true">
+          <p>取舍理由说明</p>
+        </content>
+      </shape>
+      <shape width="880" height="140" topLeftX="40" topLeftY="375" presetHandlers="0" type="rect" id="bNO">
+        <fill>
+          <fillColor color="rgba(255, 255, 255, 1)"/>
+        </fill>
+        <border color="rgba(191, 215, 255, 1)" width="1"/>
+        <content fontSize="16" fontFamily="思源黑体" color="rgba(31, 35, 41, 1)"/>
+      </shape>
+      <shape width="840" height="110" topLeftX="60" topLeftY="390" type="text" id="bNJ">
+        <content fontSize="12" fontFamily="思源黑体" color="rgba(83, 97, 116, 1)" lineSpacing="multiple:1.8">
+          <p><strong><span color="rgba(13, 19, 38, 1)">为什么选择主题层开发而非修改核心？</span></strong> Ghost核心代码庞大且频繁更新，修改核心会导致升级困难和维护成本高。主题层开发通过Handlebars模板和Content API访问内容，完全符合Ghost官方推荐的扩展方式，保证了未来升级Ghost版本时的兼容性。</p>
+          <p><strong><span color="rgba(13, 19, 38, 1)">为什么选择SQLite而非MySQL？</span></strong> 实验环境为本地单机，SQLite零配置、文件级备份简单，完全满足演示需求。MySQL需要额外安装和配置，增加了环境复杂度，不符合实验&quot;可复现交付&quot;的目标。</p>
+        </content>
+      </shape>
+    </data>
+    <note id="bNg">
+      <content>
+        <p>这一页说明技术取舍和未解决风险。左侧是关键技术取舍对比表，包括四个决策点：开发路线选择Ghost主题层而非修改核心，数据库选择SQLite本地而非MySQL远程，搜索实现选择Ghost原生搜索而非自建全文索引，邮件服务选择本地假SMTP而非真实SMTP服务。右侧是未解决风险与限制，包括五个方面：一是node_modules手动修改在重新安装依赖后会丢失；二是Ghost会员默认魔法链接登录，无传统用户名密码注册；三是Ghost原生搜索对中文分词支持有限；四是当前仅在本地开发环境验证，生产部署需额外配置；五是GitHub远程仓库尚未推送。底部是取舍理由说明，解释了为什么选择主题层开发和为什么选择SQLite。这些风险和取舍需要在演示时向老师说明，体现对项目的深入理解。</p>
+      </content>
+    </note>
+  </slide>
+</presentation>

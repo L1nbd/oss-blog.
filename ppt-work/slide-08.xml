@@ -1,0 +1,101 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="60">
+      <fill>
+        <fillColor color="rgba(13,19,38,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="12" width="600" height="40">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>05  自主扩展功能二：阅读进度条</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="750" topLeftY="18" width="170" height="30">
+      <content textType="caption" fontSize="12" color="rgba(191,215,255,1)" textAlign="right">
+        <p>实验01 / 共13页</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="40" topLeftY="85" width="420" height="160">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="100" width="380" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(13,19,38,1)" bold="true"><p>用户故事</p></content>
+    </shape>
+    <line startX="60" startY="135" endX="140" endY="135">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="60" topLeftY="150" width="380" height="80">
+      <content textType="body" fontSize="13" color="rgba(83,97,116,1)" lineSpacing="multiple:1.7">
+        <p>作为博客读者，我希望在阅读长文章时能够看到当前的阅读进度，以便了解还剩多少内容，合理安排阅读时间。</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="500" topLeftY="85" width="420" height="160">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="520" topLeftY="100" width="380" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(13,19,38,1)" bold="true"><p>验收条件</p></content>
+    </shape>
+    <line startX="520" startY="135" endX="600" endY="135">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="520" topLeftY="150" width="380" height="80">
+      <content textType="body" fontSize="13" color="rgba(83,97,116,1)" lineSpacing="multiple:1.7">
+        <ul>
+          <li><p>文章详情页顶部显示固定进度条</p></li>
+          <li><p>随页面滚动实时更新进度百分比</p></li>
+          <li><p>仅在文章详情页显示，列表页不显示</p></li>
+        </ul>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="270" width="880" height="35">
+      <content textType="sub-headline" fontSize="18" color="rgba(13,19,38,1)" bold="true"><p>实现原理</p></content>
+    </shape>
+    <line startX="40" startY="310" endX="120" endY="310">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <shape type="rect" topLeftX="40" topLeftY="330" width="880" height="60">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="345" width="840" height="30">
+      <content textType="body" fontSize="13" color="rgba(191,215,255,1)" textAlign="center">
+        <p>window.addEventListener('scroll', function() { ... })  监听滚动事件</p>
+      </content>
+    </shape>
+    <line startX="480" startY="390" endX="480" endY="410">
+      <border color="rgba(13,19,38,1)" width="2"/>
+      <endArrow type="arrow"/>
+    </line>
+    <shape type="rect" topLeftX="40" topLeftY="410" width="880" height="60">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="425" width="840" height="30">
+      <content textType="body" fontSize="13" color="rgba(255,255,255,1)" textAlign="center">
+        <p>progress = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100</p>
+      </content>
+    </shape>
+    <line startX="480" startY="470" endX="480" endY="490">
+      <border color="rgba(13,19,38,1)" width="2"/>
+      <endArrow type="arrow"/>
+    </line>
+    <shape type="rect" topLeftX="40" topLeftY="490" width="880" height="40">
+      <fill><fillColor color="rgba(191,215,255,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="498" width="840" height="25">
+      <content textType="body" fontSize="13" color="rgba(13,19,38,1)" bold="true" textAlign="center">
+        <p>document.getElementById('progress-bar').style.width = progress + '%'</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第二项自主扩展功能是阅读进度条。用户故事是：作为博客读者，希望在阅读长文章时看到当前阅读进度，了解还剩多少内容。验收条件包括：文章详情页顶部固定进度条、随滚动实时更新百分比、仅在详情页显示不在列表页显示。实现原理分三步：第一步用JavaScript的window.addEventListener监听scroll滚动事件；第二步计算进度百分比，公式是当前滚动位置除以文档总高度减去视口高度再乘以100；第三步通过DOM操作动态更新进度条的width样式。HTML结构放在default.hbs中，CSS样式在custom.css中定义，JavaScript代码内嵌在default.hbs的script标签中。进度条使用position:fixed固定在页面顶部，z-index设为较高值确保不被其他元素遮挡。</p>
+    </content>
+  </note>
+</slide>

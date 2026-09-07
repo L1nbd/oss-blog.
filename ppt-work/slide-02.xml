@@ -1,0 +1,65 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="6" height="540">
+      <fill>
+        <fillColor color="rgba(37,99,235,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="50" width="400" height="50">
+      <content textType="headline" fontSize="32" color="rgba(13,19,38,1)" bold="true">
+        <p>目录</p>
+      </content>
+    </shape>
+    <line startX="60" startY="110" endX="160" endY="110">
+      <border color="rgba(37,99,235,1)" width="3"/>
+    </line>
+    <shape type="text" topLeftX="60" topLeftY="150" width="380" height="50">
+      <content textType="body" fontSize="20" color="rgba(13,19,38,1)" bold="true">
+        <p><span color="rgba(37,99,235,1)">01</span>  实验背景与目标</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="210" width="380" height="50">
+      <content textType="body" fontSize="20" color="rgba(13,19,38,1)" bold="true">
+        <p><span color="rgba(37,99,235,1)">02</span>  技术选型与路线</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="270" width="380" height="50">
+      <content textType="body" fontSize="20" color="rgba(13,19,38,1)" bold="true">
+        <p><span color="rgba(37,99,235,1)">03</span>  系统架构</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="500" topLeftY="150" width="380" height="50">
+      <content textType="body" fontSize="20" color="rgba(13,19,38,1)" bold="true">
+        <p><span color="rgba(37,99,235,1)">04</span>  自定义主题开发</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="500" topLeftY="210" width="380" height="50">
+      <content textType="body" fontSize="20" color="rgba(13,19,38,1)" bold="true">
+        <p><span color="rgba(37,99,235,1)">05</span>  自主扩展功能</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="500" topLeftY="270" width="380" height="50">
+      <content textType="body" fontSize="20" color="rgba(13,19,38,1)" bold="true">
+        <p><span color="rgba(37,99,235,1)">06</span>  测试与Git管理</p>
+      </content>
+    </shape>
+    <line startX="60" startY="360" endX="900" endY="360">
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </line>
+    <shape type="text" topLeftX="60" topLeftY="390" width="840" height="100">
+      <content textType="body" fontSize="16" color="rgba(83,97,116,1)">
+        <p>本次汇报将围绕以上六个方面展开，重点介绍基于Ghost 5.130.6的二次开发实践，包括自定义主题oss-blog-theme的开发、两项自主扩展功能的实现、18项测试的执行结果，以及完整的Git版本管理流程。</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>本次汇报分为六个部分：首先介绍实验背景与目标，然后是技术选型与路线选择，接着是系统架构设计，之后重点介绍自定义主题开发和两项自主扩展功能，最后汇报测试结果与Git版本管理。整个实验遵循不修改Ghost核心的原则，所有二次开发均在主题和配置层面完成。</p>
+    </content>
+  </note>
+</slide>

@@ -1,0 +1,152 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="60">
+      <fill>
+        <fillColor color="rgba(13,19,38,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="12" width="600" height="40">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>03  系统架构</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="750" topLeftY="18" width="170" height="30">
+      <content textType="caption" fontSize="12" color="rgba(191,215,255,1)" textAlign="right">
+        <p>实验01 / 共13页</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="40" topLeftY="85" width="200" height="60">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="95" width="200" height="40">
+      <content textType="body" fontSize="14" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>访客/会员浏览器</p></content>
+    </shape>
+    <line startX="140" startY="145" endX="140" endY="175">
+      <border color="rgba(13,19,38,1)" width="2"/>
+      <endArrow type="arrow"/>
+    </line>
+    <shape type="rect" topLeftX="40" topLeftY="175" width="200" height="80">
+      <fill><fillColor color="rgba(191,215,255,1)"/></fill>
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </shape>
+    <shape type="text" topLeftX="50" topLeftY="185" width="180" height="25">
+      <content textType="body" fontSize="13" color="rgba(13,19,38,1)" bold="true" textAlign="center"><p>自定义主题</p></content>
+    </shape>
+    <shape type="text" topLeftX="50" topLeftY="210" width="180" height="35">
+      <content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="center"><p>oss-blog-theme v1.0.0</p><p>相关推荐 / 阅读进度条</p></content>
+    </shape>
+    <line startX="140" startY="255" endX="140" endY="285">
+      <border color="rgba(13,19,38,1)" width="2"/>
+      <endArrow type="arrow"/>
+    </line>
+    <shape type="rect" topLeftX="40" topLeftY="285" width="200" height="60">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(13,19,38,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="50" topLeftY="295" width="180" height="40">
+      <content textType="body" fontSize="13" color="rgba(13,19,38,1)" bold="true" textAlign="center"><p>Ghost 前端服务</p><p>core/frontend</p></content>
+    </shape>
+    <line startX="140" startY="345" endX="140" endY="375">
+      <border color="rgba(13,19,38,1)" width="2"/>
+      <endArrow type="arrow"/>
+    </line>
+    <shape type="rect" topLeftX="40" topLeftY="375" width="200" height="60">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(13,19,38,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="50" topLeftY="385" width="180" height="40">
+      <content textType="body" fontSize="13" color="rgba(13,19,38,1)" bold="true" textAlign="center"><p>内容与会员服务</p><p>core/server</p></content>
+    </shape>
+    <line startX="140" startY="435" endX="140" endY="465">
+      <border color="rgba(13,19,38,1)" width="2"/>
+      <endArrow type="arrow"/>
+    </line>
+    <shape type="ellipse" topLeftX="60" topLeftY="465" width="160" height="50">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="475" width="160" height="30">
+      <content textType="body" fontSize="13" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>SQLite 数据库</p></content>
+    </shape>
+    <shape type="rect" topLeftX="320" topLeftY="85" width="280" height="430">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="340" topLeftY="100" width="240" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(13,19,38,1)" bold="true"><p>二次开发边界</p></content>
+    </shape>
+    <line startX="340" startY="135" endX="420" endY="135">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="340" topLeftY="150" width="240" height="180">
+      <content textType="body" fontSize="13" color="rgba(83,97,116,1)" lineSpacing="multiple:1.8">
+        <p><span color="rgba(37,99,235,1)" bold="true">允许修改：</span></p>
+        <ul>
+          <li><p>自定义主题模板</p></li>
+          <li><p>主题样式与脚本</p></li>
+          <li><p>Content API 调用</p></li>
+          <li><p>配置文件优化</p></li>
+          <li><p>项目文档与测试</p></li>
+        </ul>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="340" topLeftY="340" width="240" height="160">
+      <content textType="body" fontSize="13" color="rgba(83,97,116,1)" lineSpacing="multiple:1.8">
+        <p><span color="rgba(200,50,50,1)" bold="true">禁止修改：</span></p>
+        <ul>
+          <li><p>Ghost 核心代码</p></li>
+          <li><p>core/server 业务逻辑</p></li>
+          <li><p>数据库迁移脚本</p></li>
+          <li><p>管理端 Ember 应用</p></li>
+        </ul>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="660" topLeftY="85" width="260" height="200">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="680" topLeftY="100" width="220" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(13,19,38,1)" bold="true"><p>管理员通道</p></content>
+    </shape>
+    <line startX="680" startY="135" endX="760" endY="135">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="680" topLeftY="150" width="220" height="120">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)" lineSpacing="multiple:1.6">
+        <p>作者/管理员 → /ghost/</p>
+        <p>→ Ghost Admin (Ember.js)</p>
+        <p>→ Admin API</p>
+        <p>→ 内容与会员服务</p>
+        <p>→ SQLite 数据库</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="660" topLeftY="315" width="260" height="200">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="680" topLeftY="330" width="220" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(13,19,38,1)" bold="true"><p>辅助服务</p></content>
+    </shape>
+    <line startX="680" startY="365" endX="760" endY="365">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="680" topLeftY="380" width="220" height="120">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)" lineSpacing="multiple:1.6">
+        <p>假 SMTP 服务器</p>
+        <p>127.0.0.1:2525</p>
+        <p>接收会员邮件/验证码</p>
+        <p>数据库备份与恢复</p>
+        <p>内容导出（脱敏）</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>系统架构采用分层设计。访客通过浏览器访问自定义主题oss-blog-theme，主题层包含我们开发的相关文章推荐和阅读进度条功能。请求经过Ghost前端服务路由解析和模板渲染，到达内容与会员服务层处理文章、标签、会员、评论和搜索业务，最终数据存储在SQLite数据库中。管理员通过/ghost/管理端操作，走Admin API通道。本实验严格遵循不修改Ghost核心的原则，所有二次开发均在主题和配置层面。辅助服务包括本地假SMTP服务器接收邮件，以及数据库备份恢复和内容导出功能。</p>
+    </content>
+  </note>
+</slide>

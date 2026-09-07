@@ -1,0 +1,79 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="60">
+      <fill>
+        <fillColor color="rgba(13,19,38,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="12" width="600" height="40">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>问题与解决</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="750" topLeftY="18" width="170" height="30">
+      <content textType="caption" fontSize="12" color="rgba(191,215,255,1)" textAlign="right">
+        <p>实验01 / 共13页</p>
+      </content>
+    </shape>
+    <table topLeftX="40" topLeftY="85" width="880" height="420">
+      <colgroup>
+        <col width="40"/>
+        <col width="200"/>
+        <col width="320"/>
+        <col width="320"/>
+      </colgroup>
+      <tr height="36">
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>#</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>问题</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>原因分析</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>解决方案</p></content></td>
+      </tr>
+      <tr height="60">
+        <td><content textType="body" fontSize="11" bold="true" color="rgba(37,99,235,1)" textAlign="center"><p>1</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>Ghost CLI安装失败</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="left"><p>CLI误检测到不存在的ghost@6.62.0，--version参数无效</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>手动下载Ghost 5.130.6 tgz解压安装，建立current junction</p></content></td>
+      </tr>
+      <tr height="60">
+        <td><content textType="body" fontSize="11" bold="true" color="rgba(37,99,235,1)" textAlign="center"><p>2</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>sqlite3编译失败</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="left"><p>系统无Visual Studio，sqlite3源码编译失败</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>从GitHub releases下载预编译二进制，手动放置到build/Release</p></content></td>
+      </tr>
+      <tr height="60">
+        <td><content textType="body" fontSize="11" bold="true" color="rgba(37,99,235,1)" textAlign="center"><p>3</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>express-hbs路径问题</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="left"><p>Windows上cacheLayout函数相对路径与绝对路径比较失败</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>手动修改hbs.js，改用path.resolve()规范化后比较</p></content></td>
+      </tr>
+      <tr height="60">
+        <td><content textType="body" fontSize="11" bold="true" color="rgba(37,99,235,1)" textAlign="center"><p>4</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>登录验证码问题</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="left"><p>Ghost 5.x默认启用新设备登录验证码，需邮箱验证</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>config中设置security.staffDeviceVerification=false禁用验证码</p></content></td>
+      </tr>
+      <tr height="60">
+        <td><content textType="body" fontSize="11" bold="true" color="rgba(37,99,235,1)" textAlign="center"><p>5</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>邮件服务未配置</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="left"><p>本地环境无SMTP服务器，会员邮件发送失败</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>启动本地假SMTP服务器(端口2525)，配置Ghost使用该SMTP</p></content></td>
+      </tr>
+      <tr height="60">
+        <td><content textType="body" fontSize="11" bold="true" color="rgba(37,99,235,1)" textAlign="center"><p>6</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>登录次数锁定</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="left"><p>多次错误密码触发暴力破解保护，锁定10分钟</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>清除数据库brute表和sessions表，重启Ghost服务</p></content></td>
+      </tr>
+    </table>
+  </data>
+  <note>
+    <content textType="body">
+      <p>实验过程中遇到了多个技术问题，都已逐一解决。主要问题包括：Ghost CLI安装失败，原因是CLI误检测到不存在的版本，解决方案是手动下载解压安装；sqlite3编译失败，原因是系统无Visual Studio，解决方案是下载预编译二进制；express-hbs路径问题，原因是Windows上路径比较失败，解决方案是改用path.resolve规范化；登录验证码问题，原因是Ghost 5.x默认启用设备验证，解决方案是在配置中禁用；邮件服务未配置，原因是本地无SMTP服务器，解决方案是启动假SMTP服务器；登录次数锁定，原因是暴力破解保护，解决方案是清除brute和sessions表。这些问题的解决过程体现了开源软件二次开发中常见的环境配置和兼容性挑战。</p>
+    </content>
+  </note>
+</slide>

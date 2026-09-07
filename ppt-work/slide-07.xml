@@ -1,0 +1,130 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="60">
+      <fill>
+        <fillColor color="rgba(13,19,38,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="12" width="600" height="40">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>05  自主扩展功能一：相关文章推荐</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="750" topLeftY="18" width="170" height="30">
+      <content textType="caption" fontSize="12" color="rgba(191,215,255,1)" textAlign="right">
+        <p>实验01 / 共13页</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="40" topLeftY="85" width="420" height="180">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="100" width="380" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(13,19,38,1)" bold="true"><p>用户故事</p></content>
+    </shape>
+    <line startX="60" startY="135" endX="140" endY="135">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="60" topLeftY="150" width="380" height="100">
+      <content textType="body" fontSize="13" color="rgba(83,97,116,1)" lineSpacing="multiple:1.7">
+        <p>作为博客读者，我希望在阅读完一篇文章后，能够看到与当前文章主题相关的其他文章推荐，以便继续深入阅读感兴趣的内容，提升阅读体验和内容发现效率。</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="500" topLeftY="85" width="420" height="180">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="520" topLeftY="100" width="380" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(13,19,38,1)" bold="true"><p>验收条件</p></content>
+    </shape>
+    <line startX="520" startY="135" endX="600" endY="135">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="520" topLeftY="150" width="380" height="100">
+      <content textType="body" fontSize="13" color="rgba(83,97,116,1)" lineSpacing="multiple:1.7">
+        <ul>
+          <li><p>文章详情页底部显示相关文章区域</p></li>
+          <li><p>基于当前文章标签匹配相关文章</p></li>
+          <li><p>排除当前文章，最多显示3篇</p></li>
+          <li><p>无相关文章时不显示推荐区域</p></li>
+        </ul>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="290" width="880" height="35">
+      <content textType="sub-headline" fontSize="18" color="rgba(13,19,38,1)" bold="true"><p>实现方案</p></content>
+    </shape>
+    <line startX="40" startY="330" endX="120" endY="330">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <shape type="rect" topLeftX="40" topLeftY="350" width="200" height="130">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="50" topLeftY="365" width="180" height="25">
+      <content textType="body" fontSize="14" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>Step 1</p></content>
+    </shape>
+    <shape type="text" topLeftX="50" topLeftY="395" width="180" height="75">
+      <content textType="body" fontSize="12" color="rgba(255,255,255,1)" textAlign="center" lineSpacing="multiple:1.5">
+        <p>使用 Ghost {{#get}} helper</p>
+        <p>查询 posts 资源</p>
+      </content>
+    </shape>
+    <line startX="240" startY="415" endX="280" endY="415">
+      <border color="rgba(13,19,38,1)" width="2"/>
+      <endArrow type="arrow"/>
+    </line>
+    <shape type="rect" topLeftX="280" topLeftY="350" width="200" height="130">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="290" topLeftY="365" width="180" height="25">
+      <content textType="body" fontSize="14" color="rgba(191,215,255,1)" bold="true" textAlign="center"><p>Step 2</p></content>
+    </shape>
+    <shape type="text" topLeftX="290" topLeftY="395" width="180" height="75">
+      <content textType="body" fontSize="12" color="rgba(255,255,255,1)" textAlign="center" lineSpacing="multiple:1.5">
+        <p>filter 参数按标签过滤</p>
+        <p>limit=3 限制数量</p>
+      </content>
+    </shape>
+    <line startX="480" startY="415" endX="520" endY="415">
+      <border color="rgba(13,19,38,1)" width="2"/>
+      <endArrow type="arrow"/>
+    </line>
+    <shape type="rect" topLeftX="520" topLeftY="350" width="200" height="130">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="530" topLeftY="365" width="180" height="25">
+      <content textType="body" fontSize="14" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>Step 3</p></content>
+    </shape>
+    <shape type="text" topLeftX="530" topLeftY="395" width="180" height="75">
+      <content textType="body" fontSize="12" color="rgba(255,255,255,1)" textAlign="center" lineSpacing="multiple:1.5">
+        <p>排除当前文章 id</p>
+        <p>include=tags 获取标签</p>
+      </content>
+    </shape>
+    <line startX="720" startY="415" endX="760" endY="415">
+      <border color="rgba(13,19,38,1)" width="2"/>
+      <endArrow type="arrow"/>
+    </line>
+    <shape type="rect" topLeftX="760" topLeftY="350" width="160" height="130">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="770" topLeftY="365" width="140" height="25">
+      <content textType="body" fontSize="14" color="rgba(191,215,255,1)" bold="true" textAlign="center"><p>Step 4</p></content>
+    </shape>
+    <shape type="text" topLeftX="770" topLeftY="395" width="140" height="75">
+      <content textType="body" fontSize="12" color="rgba(255,255,255,1)" textAlign="center" lineSpacing="multiple:1.5">
+        <p>自定义样式渲染</p>
+        <p>推荐卡片列表</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>第一项自主扩展功能是相关文章推荐。用户故事是：作为博客读者，希望在阅读完一篇文章后看到相关文章推荐，继续深入阅读。验收条件包括：文章详情页底部显示推荐区域、基于标签匹配、排除当前文章最多3篇、无相关文章时不显示。实现方案分四步：第一步使用Ghost的{{#get}} helper查询posts资源；第二步通过filter参数按当前文章标签过滤，limit=3限制数量；第三步排除当前文章id，include=tags获取标签信息；第四步用自定义样式渲染推荐卡片列表。核心文件是新增的partials/related-posts.hbs和在post.hbs中引入。</p>
+    </content>
+  </note>
+</slide>

@@ -1,0 +1,94 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="60">
+      <fill>
+        <fillColor color="rgba(13,19,38,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="12" width="600" height="40">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>核心代码展示</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="750" topLeftY="18" width="170" height="30">
+      <content textType="caption" fontSize="12" color="rgba(191,215,255,1)" textAlign="right">
+        <p>实验01 / 共17页</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="80" width="420" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(13,19,38,1)" bold="true"><p>相关文章推荐（Handlebars模板）</p></content>
+    </shape>
+    <shape type="rect" topLeftX="40" topLeftY="115" width="420" height="240">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="55" topLeftY="125" width="390" height="220">
+      <content textType="body" fontSize="10" color="rgba(191,215,255,1)" fontFamily="Consolas" lineSpacing="multiple:1.4">
+        <p>{{#get "posts" filter="tags:[{{primary_tag.slug}}]+id:-{{id}}" limit="3" include="tags" as |related|}}</p>
+        <p>  {{#if related}}</p>
+        <p>    &lt;section class="related-posts"&gt;</p>
+        <p>      &lt;h3&gt;相关文章推荐&lt;/h3&gt;</p>
+        <p>      &lt;div class="related-grid"&gt;</p>
+        <p>        {{#foreach related}}</p>
+        <p>          &lt;a class="related-card" href="{{url}}"&gt;</p>
+        <p>            &lt;h4&gt;{{title}}&lt;/h4&gt;</p>
+        <p>            &lt;span&gt;{{date format="YYYY年MM月DD日"}}&lt;/span&gt;</p>
+        <p>          &lt;/a&gt;</p>
+        <p>        {{/foreach}}</p>
+        <p>      &lt;/div&gt;</p>
+        <p>    &lt;/section&gt;</p>
+        <p>  {{/if}}</p>
+        <p>{{/get}}</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="500" topLeftY="80" width="420" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(13,19,38,1)" bold="true"><p>阅读进度条（JavaScript）</p></content>
+    </shape>
+    <shape type="rect" topLeftX="500" topLeftY="115" width="420" height="240">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="515" topLeftY="125" width="390" height="220">
+      <content textType="body" fontSize="10" color="rgba(191,215,255,1)" fontFamily="Consolas" lineSpacing="multiple:1.4">
+        <p>// 阅读进度条</p>
+        <p>window.addEventListener('scroll', function() {</p>
+        <p>  const scrollTop = window.scrollY;</p>
+        <p>  const docHeight = document.body.scrollHeight;</p>
+        <p>  const winHeight = window.innerHeight;</p>
+        <p>  const scrollPercent = (scrollTop /</p>
+        <p>    (docHeight - winHeight)) * 100;</p>
+        <p>  const bar = document.getElementById(</p>
+        <p>    'reading-progress-bar');</p>
+        <p>  if (bar) {</p>
+        <p>    bar.style.width = scrollPercent + '%';</p>
+        <p>  }</p>
+        <p>});</p>
+        <p>// 仅在文章详情页显示</p>
+        <p>if (document.body.classList.contains(</p>
+        <p>  'post-template')) { ... }</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="375" width="880" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(13,19,38,1)" bold="true"><p>关键配置（config.development.json）</p></content>
+    </shape>
+    <shape type="rect" topLeftX="40" topLeftY="410" width="880" height="110">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="420" width="840" height="90">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)" fontFamily="Consolas" lineSpacing="multiple:1.6">
+        <p><span color="rgba(37,99,235,1)" bold="true">"security"</span>: { <span color="rgba(37,99,235,1)" bold="true">"staffDeviceVerification"</span>: <span color="rgba(200,50,50,1)">false</span> }  <span color="rgba(13,19,38,1)">// 禁用登录验证码</span></p>
+        <p><span color="rgba(37,99,235,1)" bold="true">"mail"</span>: { <span color="rgba(37,99,235,1)" bold="true">"transport"</span>: <span color="rgba(200,50,50,1)">"SMTP"</span>, <span color="rgba(37,99,235,1)" bold="true">"options"</span>: { <span color="rgba(37,99,235,1)" bold="true">"host"</span>: <span color="rgba(200,50,50,1)">"127.0.0.1"</span>, <span color="rgba(37,99,235,1)" bold="true">"port"</span>: <span color="rgba(200,50,50,1)">2525</span> } }  <span color="rgba(13,19,38,1)">// 本地假SMTP</span></p>
+        <p><span color="rgba(37,99,235,1)" bold="true">"database"</span>: { <span color="rgba(37,99,235,1)" bold="true">"client"</span>: <span color="rgba(200,50,50,1)">"sqlite3"</span>, <span color="rgba(37,99,235,1)" bold="true">"connection"</span>: { <span color="rgba(37,99,235,1)" bold="true">"filename"</span>: <span color="rgba(200,50,50,1)">"content/data/ghost.db"</span> } }</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>这一页展示核心代码。左侧是相关文章推荐的Handlebars模板代码，核心是使用Ghost的{{#get}} helper查询posts资源，通过filter参数按当前文章标签过滤，用id:-{{id}}排除当前文章，limit=3限制数量，include=tags获取标签信息。右侧是阅读进度条的JavaScript代码，核心是监听window的scroll事件，计算当前滚动位置占文档总高度的百分比，然后动态更新进度条的width样式，并且只在post-template页面显示。底部是关键配置文件，包括禁用登录设备验证、配置本地假SMTP服务器、SQLite数据库配置。这些代码展示了二次开发的核心实现，都在主题层和配置层，未修改Ghost核心代码。</p>
+    </content>
+  </note>
+</slide>

@@ -1,0 +1,76 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="60">
+      <fill>
+        <fillColor color="rgba(13,19,38,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="12" width="600" height="40">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>上游基线与本人修改对比</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="750" topLeftY="18" width="170" height="30">
+      <content textType="caption" fontSize="12" color="rgba(191,215,255,1)" textAlign="right">
+        <p>实验01 / 共17页</p>
+      </content>
+    </shape>
+    <table topLeftX="40" topLeftY="85" width="880" height="380">
+      <colgroup>
+        <col width="140"/>
+        <col width="320"/>
+        <col width="420"/>
+      </colgroup>
+      <tr height="36">
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>模块</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>上游基线（Ghost 5.130.6）</p></content></td>
+        <td><fill><fillColor color="rgba(37,99,235,1)"/></fill><content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>本人修改（oss-blog v1.0）</p></content></td>
+      </tr>
+      <tr height="50">
+        <td><content textType="body" fontSize="11" bold="true" textAlign="center"><p>核心代码</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="left"><p>完整Ghost核心，认证/内容/会员/评论/搜索</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(37,99,235,1)" bold="true" textAlign="left"><p>未修改核心代码，遵循二次开发边界</p></content></td>
+      </tr>
+      <tr height="50">
+        <td><content textType="body" fontSize="11" bold="true" textAlign="center"><p>默认主题</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="left"><p>Casper 5.9.0，标准导航/卡片/详情页</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(37,99,235,1)" bold="true" textAlign="left"><p>oss-blog-theme，自定义导航/卡片/404页/页脚</p></content></td>
+      </tr>
+      <tr height="50">
+        <td><content textType="body" fontSize="11" bold="true" textAlign="center"><p>文章推荐</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="left"><p>无相关文章推荐功能</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(37,99,235,1)" bold="true" textAlign="left"><p>新增相关文章推荐，基于标签匹配显示3篇</p></content></td>
+      </tr>
+      <tr height="50">
+        <td><content textType="body" fontSize="11" bold="true" textAlign="center"><p>阅读体验</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="left"><p>无阅读进度指示</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(37,99,235,1)" bold="true" textAlign="left"><p>新增阅读进度条，随滚动实时更新百分比</p></content></td>
+      </tr>
+      <tr height="50">
+        <td><content textType="body" fontSize="11" bold="true" textAlign="center"><p>安全配置</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="left"><p>默认启用新设备登录验证码</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(37,99,235,1)" bold="true" textAlign="left"><p>禁用设备验证，配置本地假SMTP服务器</p></content></td>
+      </tr>
+      <tr height="50">
+        <td><content textType="body" fontSize="11" bold="true" textAlign="center"><p>项目文档</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(83,97,116,1)" textAlign="left"><p>Ghost官方文档，无实验文档</p></content></td>
+        <td><content textType="body" fontSize="11" color="rgba(37,99,235,1)" bold="true" textAlign="left"><p>新增README/NOTICE/实验报告/测试报告等11份文档</p></content></td>
+      </tr>
+    </table>
+    <shape type="text" topLeftX="40" topLeftY="480" width="880" height="40">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)" textAlign="center">
+        <p>修改边界：所有二次开发均在主题层和配置层，未修改Ghost核心代码，保证升级兼容性</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>这一页对比上游基线和本人修改。上游基线是Ghost 5.130.6，包含完整的核心功能和Casper默认主题。本人修改主要在四个方面：一是自定义主题oss-blog-theme，修改了导航、文章卡片、404页面和页脚；二是新增相关文章推荐功能，基于标签匹配显示3篇相关文章；三是新增阅读进度条，随页面滚动实时更新；四是安全配置优化，禁用登录设备验证，配置本地假SMTP服务器。核心代码完全未修改，遵循二次开发边界，保证了未来升级Ghost版本时的兼容性。项目文档方面新增了README、NOTICE、实验报告、测试报告等11份文档。</p>
+    </content>
+  </note>
+</slide>

@@ -1,0 +1,48 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="linear-gradient(135deg,rgba(13,19,38,1) 0%,rgba(37,99,235,1) 100%)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="6">
+      <fill>
+        <fillColor color="rgba(191,215,255,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="120" width="800" height="60">
+      <content textType="caption" fontSize="18" color="rgba(191,215,255,1)" letterSpacing="2">
+        <p>《开源软件与新技术》课程实验</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="180" width="800" height="120">
+      <content textType="title" fontSize="48" color="rgba(255,255,255,1)" bold="true" letterSpacing="1">
+        <p>实验01</p>
+        <p>开源个人博客系统二次开发</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="80" topLeftY="340" width="700" height="60">
+      <content textType="body" fontSize="18" color="rgba(191,215,255,1)">
+        <p>基于 Ghost 5.130.6 · 可注册 · 可写作 · 可评论 · 可搜索</p>
+      </content>
+    </shape>
+    <line startX="80" startY="430" endX="200" endY="430">
+      <border color="rgba(191,215,255,1)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="80" topLeftY="450" width="400" height="40">
+      <content textType="caption" fontSize="14" color="rgba(191,215,255,0.8)">
+        <p>2026年9月7日</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="600" topLeftY="450" width="280" height="40">
+      <content textType="caption" fontSize="14" color="rgba(191,215,255,0.8)" textAlign="right">
+        <p>v1.0-lab</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>各位老师、同学好，今天我汇报的是《开源软件与新技术》课程的实验01——开源个人博客系统二次开发。本实验基于成熟的开源博客平台Ghost 5.130.6，完成了一个具备注册、写作、评论、搜索功能的个人博客系统。接下来我将从实验背景、技术选型、系统架构、自定义主题、自主扩展功能、测试结果、Git管理等方面进行汇报。</p>
+    </content>
+  </note>
+</slide>

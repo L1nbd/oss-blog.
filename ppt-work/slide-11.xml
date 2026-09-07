@@ -1,0 +1,93 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="60">
+      <fill>
+        <fillColor color="rgba(13,19,38,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="12" width="600" height="40">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>06  Git版本管理</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="750" topLeftY="18" width="170" height="30">
+      <content textType="caption" fontSize="12" color="rgba(191,215,255,1)" textAlign="right">
+        <p>实验01 / 共13页</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="40" topLeftY="85" width="200" height="80">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="95" width="200" height="40">
+      <content textType="title" fontSize="36" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>10</p></content>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="135" width="200" height="25">
+      <content textType="body" fontSize="13" color="rgba(255,255,255,1)" textAlign="center"><p>个非合并Commit</p></content>
+    </shape>
+    <shape type="rect" topLeftX="280" topLeftY="85" width="200" height="80">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="280" topLeftY="95" width="200" height="40">
+      <content textType="title" fontSize="36" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>2</p></content>
+    </shape>
+    <shape type="text" topLeftX="280" topLeftY="135" width="200" height="25">
+      <content textType="body" fontSize="13" color="rgba(255,255,255,1)" textAlign="center"><p>个Issue</p></content>
+    </shape>
+    <shape type="rect" topLeftX="520" topLeftY="85" width="200" height="80">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="520" topLeftY="95" width="200" height="40">
+      <content textType="title" fontSize="36" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>1</p></content>
+    </shape>
+    <shape type="text" topLeftX="520" topLeftY="135" width="200" height="25">
+      <content textType="body" fontSize="13" color="rgba(255,255,255,1)" textAlign="center"><p>个PR + 1次Review</p></content>
+    </shape>
+    <shape type="rect" topLeftX="760" topLeftY="85" width="160" height="80">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="760" topLeftY="95" width="160" height="40">
+      <content textType="title" fontSize="36" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>v1.0</p></content>
+    </shape>
+    <shape type="text" topLeftX="760" topLeftY="135" width="160" height="25">
+      <content textType="body" fontSize="13" color="rgba(255,255,255,1)" textAlign="center"><p>版本标签</p></content>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="190" width="880" height="35">
+      <content textType="sub-headline" fontSize="18" color="rgba(13,19,38,1)" bold="true"><p>Commit历史</p></content>
+    </shape>
+    <line startX="40" startY="230" endX="120" endY="230">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <table topLeftX="40" topLeftY="245" width="880" height="240">
+      <colgroup>
+        <col width="100"/>
+        <col width="80"/>
+        <col width="500"/>
+        <col width="200"/>
+      </colgroup>
+      <tr height="30">
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>Commit</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>类型</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>说明</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>文件数</p></content></td>
+      </tr>
+      <tr height="26"><td><content textType="body" fontSize="10" textAlign="center"><p>034c978</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>chore</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>初始化项目骨架和.gitignore配置</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>1</p></content></td></tr>
+      <tr height="26"><td><content textType="body" fontSize="10" textAlign="center"><p>264767a</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>docs</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>添加基线记录和架构文档</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>2</p></content></td></tr>
+      <tr height="26"><td><content textType="body" fontSize="10" textAlign="center"><p>651eef0</p></content></td><td><content textType="body" fontSize="10" color="rgba(37,99,235,1)" bold="true" textAlign="center"><p>feat</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>开发自定义主题oss-blog-theme v1.0.0</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>51</p></content></td></tr>
+      <tr height="26"><td><content textType="body" fontSize="10" textAlign="center"><p>da92c22</p></content></td><td><content textType="body" fontSize="10" color="rgba(37,99,235,1)" bold="true" textAlign="center"><p>feat</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>实现自主扩展功能并添加Issue文档</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>1</p></content></td></tr>
+      <tr height="26"><td><content textType="body" fontSize="10" textAlign="center"><p>9f76131</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>test</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>添加测试报告，18项测试全部通过</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>1</p></content></td></tr>
+      <tr height="26"><td><content textType="body" fontSize="10" textAlign="center"><p>5c4056c</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>docs</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>添加README项目说明文档</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>1</p></content></td></tr>
+      <tr height="26"><td><content textType="body" fontSize="10" textAlign="center"><p>ece6ef6</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>docs</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>添加PR和Code Review文档</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>2</p></content></td></tr>
+      <tr height="26"><td><content textType="body" fontSize="10" textAlign="center"><p>cd7a6c7</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>docs</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>补充实验文档、脚本和测试证据</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>21</p></content></td></tr>
+    </table>
+  </data>
+  <note>
+    <content textType="body">
+      <p>Git版本管理方面，项目使用Git进行版本控制，main分支为主分支，feature/blog-enhancement为功能分支。共10个非合并Commit，覆盖chore、docs、feat、test四种类型。2个Issue记录了自主扩展功能的用户故事和验收条件。1个Pull Request将feature分支合并到main，包含完整的变更清单和测试结果。1次Code Review覆盖功能正确性、代码质量、安全性、可维护性四个维度。版本标签v1.0-lab标记实验交付版本。分支策略遵循Git Flow规范，功能开发在feature分支完成，测试通过后合并到main。所有Commit信息清晰可追溯，符合实验要求的至少5个非合并Commit标准。</p>
+    </content>
+  </note>
+</slide>

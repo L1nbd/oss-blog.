@@ -1,0 +1,95 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="60">
+      <fill>
+        <fillColor color="rgba(13,19,38,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="12" width="600" height="40">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>技术取舍与未解决风险</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="750" topLeftY="18" width="170" height="30">
+      <content textType="caption" fontSize="12" color="rgba(191,215,255,1)" textAlign="right">
+        <p>实验01 / 共17页</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="80" width="420" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(37,99,235,1)" bold="true"><p>关键技术取舍</p></content>
+    </shape>
+    <table topLeftX="40" topLeftY="115" width="420" height="200">
+      <colgroup>
+        <col width="100"/>
+        <col width="160"/>
+        <col width="160"/>
+      </colgroup>
+      <tr height="32">
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>决策点</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>选择方案</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>放弃方案</p></content></td>
+      </tr>
+      <tr height="40">
+        <td><content textType="body" fontSize="10" bold="true" textAlign="center"><p>开发路线</p></content></td>
+        <td><content textType="body" fontSize="10" color="rgba(37,99,235,1)" bold="true" textAlign="center"><p>Ghost主题层</p></content></td>
+        <td><content textType="body" fontSize="10" color="rgba(83,97,116,1)" textAlign="center"><p>修改Ghost核心</p></content></td>
+      </tr>
+      <tr height="40">
+        <td><content textType="body" fontSize="10" bold="true" textAlign="center"><p>数据库</p></content></td>
+        <td><content textType="body" fontSize="10" color="rgba(37,99,235,1)" bold="true" textAlign="center"><p>SQLite本地</p></content></td>
+        <td><content textType="body" fontSize="10" color="rgba(83,97,116,1)" textAlign="center"><p>MySQL远程</p></content></td>
+      </tr>
+      <tr height="40">
+        <td><content textType="body" fontSize="10" bold="true" textAlign="center"><p>搜索实现</p></content></td>
+        <td><content textType="body" fontSize="10" color="rgba(37,99,235,1)" bold="true" textAlign="center"><p>Ghost原生搜索</p></content></td>
+        <td><content textType="body" fontSize="10" color="rgba(83,97,116,1)" textAlign="center"><p>自建全文索引</p></content></td>
+      </tr>
+      <tr height="40">
+        <td><content textType="body" fontSize="10" bold="true" textAlign="center"><p>邮件服务</p></content></td>
+        <td><content textType="body" fontSize="10" color="rgba(37,99,235,1)" bold="true" textAlign="center"><p>本地假SMTP</p></content></td>
+        <td><content textType="body" fontSize="10" color="rgba(83,97,116,1)" textAlign="center"><p>真实SMTP服务</p></content></td>
+      </tr>
+    </table>
+    <shape type="text" topLeftX="500" topLeftY="80" width="420" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(200,50,50,1)" bold="true"><p>未解决风险与限制</p></content>
+    </shape>
+    <shape type="rect" topLeftX="500" topLeftY="115" width="420" height="200">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(200,50,50,0.3)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="520" topLeftY="130" width="380" height="170">
+      <content textType="body" fontSize="11" color="rgba(83,97,116,1)" lineSpacing="multiple:1.5">
+        <ul>
+          <li><p><span color="rgba(200,50,50,1)" bold="true">node_modules手动修改</span>：express-hbs和sqlite3的修复在重新安装依赖后会丢失，需记录修复步骤</p></li>
+          <li><p><span color="rgba(200,50,50,1)" bold="true">会员注册流程</span>：Ghost会员默认魔法链接登录，无传统用户名密码注册，演示时需说明</p></li>
+          <li><p><span color="rgba(200,50,50,1)" bold="true">搜索中文分词</span>：Ghost原生搜索对中文分词支持有限，长句搜索可能漏匹配</p></li>
+          <li><p><span color="rgba(200,50,50,1)" bold="true">生产环境未验证</span>：当前仅在本地开发环境验证，生产部署需额外配置SSL和反向代理</p></li>
+          <li><p><span color="rgba(200,50,50,1)" bold="true">GitHub远程未推送</span>：当前仅有本地Git仓库，需创建远程仓库并推送完整历史</p></li>
+        </ul>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="340" width="880" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(13,19,38,1)" bold="true"><p>取舍理由说明</p></content>
+    </shape>
+    <shape type="rect" topLeftX="40" topLeftY="375" width="880" height="140">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="390" width="840" height="110">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)" lineSpacing="multiple:1.8">
+        <p><span color="rgba(13,19,38,1)" bold="true">为什么选择主题层开发而非修改核心？</span> Ghost核心代码庞大且频繁更新，修改核心会导致升级困难和维护成本高。主题层开发通过Handlebars模板和Content API访问内容，完全符合Ghost官方推荐的扩展方式，保证了未来升级Ghost版本时的兼容性。</p>
+        <p><span color="rgba(13,19,38,1)" bold="true">为什么选择SQLite而非MySQL？</span> 实验环境为本地单机，SQLite零配置、文件级备份简单，完全满足演示需求。MySQL需要额外安装和配置，增加了环境复杂度，不符合实验"可复现交付"的目标。</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>这一页说明技术取舍和未解决风险。左侧是关键技术取舍对比表，包括四个决策点：开发路线选择Ghost主题层而非修改核心，数据库选择SQLite本地而非MySQL远程，搜索实现选择Ghost原生搜索而非自建全文索引，邮件服务选择本地假SMTP而非真实SMTP服务。右侧是未解决风险与限制，包括五个方面：一是node_modules手动修改在重新安装依赖后会丢失；二是Ghost会员默认魔法链接登录，无传统用户名密码注册；三是Ghost原生搜索对中文分词支持有限；四是当前仅在本地开发环境验证，生产部署需额外配置；五是GitHub远程仓库尚未推送。底部是取舍理由说明，解释了为什么选择主题层开发和为什么选择SQLite。这些风险和取舍需要在演示时向老师说明，体现对项目的深入理解。</p>
+    </content>
+  </note>
+</slide>

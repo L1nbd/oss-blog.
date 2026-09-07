@@ -1,0 +1,122 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="60">
+      <fill>
+        <fillColor color="rgba(13,19,38,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="12" width="600" height="40">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>04  自定义主题开发</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="750" topLeftY="18" width="170" height="30">
+      <content textType="caption" fontSize="12" color="rgba(191,215,255,1)" textAlign="right">
+        <p>实验01 / 共13页</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="40" topLeftY="85" width="280" height="180">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="105" width="240" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(191,215,255,1)" bold="true"><p>主题信息</p></content>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="140" width="240" height="110">
+      <content textType="body" fontSize="13" color="rgba(255,255,255,1)" lineSpacing="multiple:1.8">
+        <p>名称：oss-blog-theme</p>
+        <p>版本：v1.0.0</p>
+        <p>基础：Casper 5.9.0</p>
+        <p>构建：gulp 4.0.2</p>
+        <p>校验：gscan 通过</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="360" topLeftY="85" width="560" height="35">
+      <content textType="sub-headline" fontSize="18" color="rgba(13,19,38,1)" bold="true"><p>主题修改清单</p></content>
+    </shape>
+    <line startX="360" startY="125" endX="440" endY="125">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <table topLeftX="360" topLeftY="140" width="560" height="260">
+      <colgroup>
+        <col width="160"/>
+        <col width="80"/>
+        <col width="320"/>
+      </colgroup>
+      <tr height="36">
+        <td>
+          <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+          <content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>文件</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+          <content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>类型</p></content>
+        </td>
+        <td>
+          <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+          <content textType="body" fontSize="12" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>修改内容</p></content>
+        </td>
+      </tr>
+      <tr height="36">
+        <td><content textType="body" fontSize="11" textAlign="left"><p>default.hbs</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center"><p>修改</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>自定义导航栏、页脚、阅读进度条</p></content></td>
+      </tr>
+      <tr height="36">
+        <td><content textType="body" fontSize="11" textAlign="left"><p>post-card.hbs</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center"><p>修改</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>文章卡片样式、阅读更多、中文日期</p></content></td>
+      </tr>
+      <tr height="36">
+        <td><content textType="body" fontSize="11" textAlign="left"><p>post.hbs</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center"><p>修改</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>详情页元数据、标签列表、相关推荐</p></content></td>
+      </tr>
+      <tr height="36">
+        <td><content textType="body" fontSize="11" textAlign="left"><p>error-404.hbs</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center"><p>修改</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>自定义404页面、推荐阅读、搜索入口</p></content></td>
+      </tr>
+      <tr height="36">
+        <td><content textType="body" fontSize="11" textAlign="left"><p>custom.css</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center"><p>新增</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>自定义样式（导航/卡片/页脚/响应式）</p></content></td>
+      </tr>
+      <tr height="36">
+        <td><content textType="body" fontSize="11" textAlign="left"><p>related-posts.hbs</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="center"><p>新增</p></content></td>
+        <td><content textType="body" fontSize="11" textAlign="left"><p>相关文章推荐partial（基于标签匹配）</p></content></td>
+      </tr>
+    </table>
+    <shape type="rect" topLeftX="40" topLeftY="290" width="280" height="110">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="305" width="240" height="25">
+      <content textType="body" fontSize="14" color="rgba(37,99,235,1)" bold="true"><p>gscan 校验结果</p></content>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="335" width="240" height="55">
+      <content textType="body" fontSize="13" color="rgba(83,97,116,1)" lineSpacing="multiple:1.5">
+        <p>兼容 Ghost 5.x</p>
+        <p>0 致命错误 · 0 阻断警告</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="40" topLeftY="420" width="880" height="80">
+      <fill><fillColor color="rgba(191,215,255,0.3)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="60" topLeftY="435" width="840" height="50">
+      <content textType="body" fontSize="13" color="rgba(13,19,38,1)" lineSpacing="multiple:1.6">
+        <p><span bold="true">构建流程：</span>npm install --legacy-peer-deps（1031包）→ npx gulp build（CSS/JS构建成功）→ npx gscan .（校验通过）→ npx gulp zip（生成主题压缩包422KB）</p>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>自定义主题oss-blog-theme基于Casper 5.9.0二次开发，版本v1.0.0。主要修改包括：default.hbs自定义导航栏和页脚，添加阅读进度条；post-card.hbs修改文章卡片样式，添加阅读更多链接和中文日期格式；post.hbs优化详情页元数据，显示所有标签，引入相关文章推荐；error-404.hbs自定义404页面。新增custom.css自定义样式文件和related-posts.hbs相关文章推荐partial。主题通过gscan校验，兼容Ghost 5.x，0致命错误。构建流程包括npm安装依赖、gulp构建、gscan校验、gulp zip打包。</p>
+    </content>
+  </note>
+</slide>

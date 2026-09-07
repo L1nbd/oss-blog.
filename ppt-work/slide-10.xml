@@ -1,0 +1,97 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="60">
+      <fill>
+        <fillColor color="rgba(13,19,38,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="12" width="600" height="40">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>06  测试结果</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="750" topLeftY="18" width="170" height="30">
+      <content textType="caption" fontSize="12" color="rgba(191,215,255,1)" textAlign="right">
+        <p>实验01 / 共13页</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="40" topLeftY="85" width="280" height="120">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="95" width="280" height="60">
+      <content textType="title" fontSize="56" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>18</p></content>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="160" width="280" height="30">
+      <content textType="body" fontSize="16" color="rgba(255,255,255,1)" textAlign="center"><p>项测试全部通过</p></content>
+    </shape>
+    <shape type="rect" topLeftX="360" topLeftY="85" width="560" height="120">
+      <fill><fillColor color="rgba(255,255,255,1)"/></fill>
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="380" topLeftY="100" width="520" height="30">
+      <content textType="sub-headline" fontSize="16" color="rgba(13,19,38,1)" bold="true"><p>测试维度分布</p></content>
+    </shape>
+    <shape type="rect" topLeftX="380" topLeftY="140" width="120" height="50">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="380" topLeftY="148" width="120" height="35">
+      <content textType="body" fontSize="14" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>功能测试</p><p>8项</p></content>
+    </shape>
+    <shape type="rect" topLeftX="520" topLeftY="140" width="120" height="50">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="520" topLeftY="148" width="120" height="35">
+      <content textType="body" fontSize="14" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>权限测试</p><p>4项</p></content>
+    </shape>
+    <shape type="rect" topLeftX="660" topLeftY="140" width="120" height="50">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="660" topLeftY="148" width="120" height="35">
+      <content textType="body" fontSize="14" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>界面测试</p><p>4项</p></content>
+    </shape>
+    <shape type="rect" topLeftX="800" topLeftY="140" width="100" height="50">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="800" topLeftY="148" width="100" height="35">
+      <content textType="body" fontSize="14" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>恢复测试</p><p>2项</p></content>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="230" width="880" height="35">
+      <content textType="sub-headline" fontSize="18" color="rgba(13,19,38,1)" bold="true"><p>关键测试用例</p></content>
+    </shape>
+    <line startX="40" startY="270" endX="120" endY="270">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <table topLeftX="40" topLeftY="285" width="880" height="200">
+      <colgroup>
+        <col width="80"/>
+        <col width="100"/>
+        <col width="300"/>
+        <col width="300"/>
+        <col width="100"/>
+      </colgroup>
+      <tr height="32">
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>编号</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>类别</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>测试项</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>预期结果</p></content></td>
+        <td><fill><fillColor color="rgba(13,19,38,1)"/></fill><content textType="body" fontSize="11" bold="true" color="rgba(255,255,255,1)" textAlign="center"><p>状态</p></content></td>
+      </tr>
+      <tr height="28"><td><content textType="body" fontSize="10" textAlign="center"><p>TC-F01</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>功能</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>首页文章列表</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>显示8篇文章</p></content></td><td><content textType="body" fontSize="10" color="rgba(37,99,235,1)" bold="true" textAlign="center"><p>通过</p></content></td></tr>
+      <tr height="28"><td><content textType="body" fontSize="10" textAlign="center"><p>TC-F07</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>功能</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>相关文章推荐</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>详情页显示3篇推荐</p></content></td><td><content textType="body" fontSize="10" color="rgba(37,99,235,1)" bold="true" textAlign="center"><p>通过</p></content></td></tr>
+      <tr height="28"><td><content textType="body" fontSize="10" textAlign="center"><p>TC-F08</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>功能</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>阅读进度条</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>随滚动实时更新</p></content></td><td><content textType="body" fontSize="10" color="rgba(37,99,235,1)" bold="true" textAlign="center"><p>通过</p></content></td></tr>
+      <tr height="28"><td><content textType="body" fontSize="10" textAlign="center"><p>TC-P02</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>权限</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>未登录用户限制</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>管理API返回401</p></content></td><td><content textType="body" fontSize="10" color="rgba(37,99,235,1)" bold="true" textAlign="center"><p>通过</p></content></td></tr>
+      <tr height="28"><td><content textType="body" fontSize="10" textAlign="center"><p>TC-U03</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>界面</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>自定义404页面</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>返回404，中文提示</p></content></td><td><content textType="body" fontSize="10" color="rgba(37,99,235,1)" bold="true" textAlign="center"><p>通过</p></content></td></tr>
+      <tr height="28"><td><content textType="body" fontSize="10" textAlign="center"><p>TC-R01</p></content></td><td><content textType="body" fontSize="10" textAlign="center"><p>恢复</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>数据库备份</p></content></td><td><content textType="body" fontSize="10" textAlign="left"><p>备份文件创建成功</p></content></td><td><content textType="body" fontSize="10" color="rgba(37,99,235,1)" bold="true" textAlign="center"><p>通过</p></content></td></tr>
+    </table>
+  </data>
+  <note>
+    <content textType="body">
+      <p>测试结果方面，共执行18项测试，全部通过。测试分为四个维度：功能测试8项（首页文章列表、文章详情页、标签页、搜索功能、会员功能、评论功能、相关文章推荐、阅读进度条）、权限测试4项（管理员后台访问、未登录用户限制、文章访问控制、会员专属内容）、界面测试4项（自定义主题导航、文章卡片样式、404页面、自定义页脚）、恢复测试2项（数据库备份、主题切换恢复）。关键测试用例包括相关文章推荐显示3篇、阅读进度条随滚动实时更新、未登录访问管理API返回401、自定义404页面返回404状态码等。主题gscan校验通过，兼容Ghost 5.x。</p>
+    </content>
+  </note>
+</slide>

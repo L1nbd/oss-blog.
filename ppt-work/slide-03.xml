@@ -1,0 +1,71 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="60">
+      <fill>
+        <fillColor color="rgba(13,19,38,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="12" width="600" height="40">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>01  实验背景与目标</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="750" topLeftY="18" width="170" height="30">
+      <content textType="caption" fontSize="12" color="rgba(191,215,255,1)" textAlign="right">
+        <p>实验01 / 共13页</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="90" width="420" height="40">
+      <content textType="sub-headline" fontSize="20" color="rgba(13,19,38,1)" bold="true">
+        <p>实验背景</p>
+      </content>
+    </shape>
+    <line startX="40" startY="135" endX="120" endY="135">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="40" topLeftY="155" width="420" height="200">
+      <content textType="body" fontSize="14" color="rgba(83,97,116,1)" lineSpacing="multiple:1.6">
+        <p>个人博客系统包含身份、内容、分类、评论和检索等典型Web子系统，是观察开源软件生命周期的合适切入口。</p>
+        <p>本实验要求以成熟开源项目为基线，完成可辨识的二次开发、测试、Git版本管理和现场运行展示。</p>
+        <p>通过本实验，掌握从GitHub获取开源项目、本地部署、二次开发、测试验证到版本管理的完整流程。</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="500" topLeftY="90" width="420" height="380">
+      <fill>
+        <fillColor color="rgba(255,255,255,1)"/>
+      </fill>
+      <border color="rgba(191,215,255,1)" width="1"/>
+    </shape>
+    <shape type="text" topLeftX="520" topLeftY="110" width="380" height="40">
+      <content textType="sub-headline" fontSize="20" color="rgba(13,19,38,1)" bold="true">
+        <p>实验目标</p>
+      </content>
+    </shape>
+    <line startX="520" startY="155" endX="600" endY="155">
+      <border color="rgba(37,99,235,1)" width="2"/>
+    </line>
+    <shape type="text" topLeftX="520" topLeftY="175" width="380" height="280">
+      <content textType="body" fontSize="14" color="rgba(83,97,116,1)" lineSpacing="multiple:1.8">
+        <ul>
+          <li><p>判断开源博客方案的适用边界</p></li>
+          <li><p>掌握Ghost本地安装、启动、停止、备份方法</p></li>
+          <li><p>定位主题、内容API、标签和评论模块</p></li>
+          <li><p>完成至少1项非换色类自主扩展功能</p></li>
+          <li><p>完成18项功能、权限、界面、恢复测试</p></li>
+          <li><p>掌握Issue、PR、Code Review协作流程</p></li>
+          <li><p>交付可现场运行的个人博客系统</p></li>
+        </ul>
+      </content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>首先介绍实验背景。个人博客系统是观察开源软件生命周期的典型场景，包含身份认证、内容管理、分类标签、评论互动和搜索检索等Web子系统。本实验要求以成熟开源项目为基线，完成可辨识的二次开发。实验目标包括七个方面：判断开源方案适用边界、掌握Ghost部署运维、定位核心模块、实现自主扩展功能、完成18项测试、掌握Git协作流程、交付可运行系统。</p>
+    </content>
+  </note>
+</slide>

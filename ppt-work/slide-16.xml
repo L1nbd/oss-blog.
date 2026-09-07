@@ -1,0 +1,101 @@
+<slide>
+  <style>
+    <fill>
+      <fillColor color="rgba(242,244,248,1)"/>
+    </fill>
+  </style>
+  <data>
+    <shape type="rect" topLeftX="0" topLeftY="0" width="960" height="60">
+      <fill>
+        <fillColor color="rgba(13,19,38,1)"/>
+      </fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="12" width="600" height="40">
+      <content textType="headline" fontSize="22" color="rgba(255,255,255,1)" bold="true">
+        <p>Live Demo 演示流程（5-10分钟）</p>
+      </content>
+    </shape>
+    <shape type="text" topLeftX="750" topLeftY="18" width="170" height="30">
+      <content textType="caption" fontSize="12" color="rgba(191,215,255,1)" textAlign="right">
+        <p>实验01 / 共17页</p>
+      </content>
+    </shape>
+    <shape type="rect" topLeftX="40" topLeftY="85" width="60" height="60">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="95" width="60" height="40">
+      <content textType="title" fontSize="28" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>1</p></content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="90" width="800" height="25">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" bold="true"><p>会员登录与搜索（约1分钟）</p></content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="115" width="800" height="30">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)"><p>使用会员账号（zhangsan@example.com）登录，搜索中文关键词"数据库"，展示搜索结果和文章跳转</p></content>
+    </shape>
+    <line startX="70" startY="150" endX="70" endY="175">
+      <border color="rgba(191,215,255,1)" width="2"/>
+    </line>
+    <shape type="rect" topLeftX="40" topLeftY="175" width="60" height="60">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="185" width="60" height="40">
+      <content textType="title" fontSize="28" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>2</p></content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="180" width="800" height="25">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" bold="true"><p>管理员发布文章（约2分钟）</p></content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="205" width="800" height="30">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)"><p>切换到管理员（admin@example.com）发布一篇带标签的新文章，返回前台验证文章显示和标签筛选</p></content>
+    </shape>
+    <line startX="70" startY="240" endX="70" endY="265">
+      <border color="rgba(191,215,255,1)" width="2"/>
+    </line>
+    <shape type="rect" topLeftX="40" topLeftY="265" width="60" height="60">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="275" width="60" height="40">
+      <content textType="title" fontSize="28" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>3</p></content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="270" width="800" height="25">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" bold="true"><p>会员评论与权限展示（约1分钟）</p></content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="295" width="800" height="30">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)"><p>会员发表评论，展示评论权限控制；演示匿名用户无法评论的错误状态提示</p></content>
+    </shape>
+    <line startX="70" startY="330" endX="70" endY="355">
+      <border color="rgba(191,215,255,1)" width="2"/>
+    </line>
+    <shape type="rect" topLeftX="40" topLeftY="355" width="60" height="60">
+      <fill><fillColor color="rgba(13,19,38,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="365" width="60" height="40">
+      <content textType="title" fontSize="28" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>4</p></content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="360" width="800" height="25">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" bold="true"><p>自主功能展示（约2分钟）</p></content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="385" width="800" height="30">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)"><p>触发相关文章推荐和阅读进度条功能，展示对应Issue、核心代码和测试结果</p></content>
+    </shape>
+    <line startX="70" startY="420" endX="70" endY="445">
+      <border color="rgba(191,215,255,1)" width="2"/>
+    </line>
+    <shape type="rect" topLeftX="40" topLeftY="445" width="60" height="60">
+      <fill><fillColor color="rgba(37,99,235,1)"/></fill>
+    </shape>
+    <shape type="text" topLeftX="40" topLeftY="455" width="60" height="40">
+      <content textType="title" fontSize="28" color="rgba(255,255,255,1)" bold="true" textAlign="center"><p>5</p></content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="450" width="800" height="25">
+      <content textType="body" fontSize="15" color="rgba(13,19,38,1)" bold="true"><p>Git证据与备份说明（约1分钟）</p></content>
+    </shape>
+    <shape type="text" topLeftX="120" topLeftY="475" width="800" height="30">
+      <content textType="body" fontSize="12" color="rgba(83,97,116,1)"><p>查看Git PR与个人贡献证据，说明数据库备份位置和内容导出恢复方法</p></content>
+    </shape>
+  </data>
+  <note>
+    <content textType="body">
+      <p>这一页说明5-10分钟Live Demo的演示流程，共5个步骤。第一步是会员登录与搜索，约1分钟，使用会员账号登录，搜索中文关键词"数据库"，展示搜索结果和文章跳转。第二步是管理员发布文章，约2分钟，切换到管理员发布一篇带标签的新文章，返回前台验证。第三步是会员评论与权限展示，约1分钟，会员发表评论，展示评论权限控制和匿名用户无法评论的错误状态。第四步是自主功能展示，约2分钟，触发相关文章推荐和阅读进度条，展示对应Issue、核心代码和测试结果。第五步是Git证据与备份说明，约1分钟，查看Git PR与个人贡献，说明数据库备份和内容导出恢复方法。整个Demo控制在5-10分钟内，覆盖登录、文章、标签、评论、搜索和自主功能的完整主流程。</p>
+    </content>
+  </note>
+</slide>
