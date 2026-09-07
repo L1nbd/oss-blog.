@@ -1,69 +1,69 @@
 # ============================================
-# Ghost 博客系统一键启动脚本
-# 用法：.\start.ps1
+# Ghost Blog System - Start Script
+# Usage: .\start.ps1
 # ============================================
 
 $ErrorActionPreference = "Stop"
 
-# 配置
+# Configuration
 $ProjectRoot = "C:\Users\34344\oss-blog"
 $RuntimeDir = Join-Path $ProjectRoot "runtime"
 $GhostScript = Join-Path $RuntimeDir "current\index.js"
 $Port = 2368
 
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "  Ghost 博客系统启动脚本" -ForegroundColor Cyan
+Write-Host "  Ghost Blog System - Start Script" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
-# 检查端口是否被占用
-Write-Host "[1/4] 检查端口 $Port ..." -ForegroundColor Yellow
+# Check if port is in use
+Write-Host "[1/4] Checking port $Port ..." -ForegroundColor Yellow
 $portInUse = Get-NetTCPConnection -LocalPort $Port -ErrorAction SilentlyContinue
 if ($portInUse) {
-    Write-Host "  端口 $Port 已被占用 (PID: $($portInUse.OwningProcess))" -ForegroundColor Red
-    $choice = Read-Host "  是否终止该进程并继续? (y/N)"
+    Write-Host "  Port $Port is in use (PID: $($portInUse.OwningProcess))" -ForegroundColor Red
+    $choice = Read-Host "  Kill this process and continue? (y/N)"
     if ($choice -eq 'y' -or $choice -eq 'Y') {
         Stop-Process -Id $portInUse.OwningProcess -Force
         Start-Sleep -Seconds 2
-        Write-Host "  进程已终止" -ForegroundColor Green
+        Write-Host "  Process killed" -ForegroundColor Green
     } else {
-        Write-Host "  启动取消" -ForegroundColor Red
+        Write-Host "  Start cancelled" -ForegroundColor Red
         exit 1
     }
 } else {
-    Write-Host "  端口 $Port 空闲" -ForegroundColor Green
+    Write-Host "  Port $Port is free" -ForegroundColor Green
 }
 
-# 检查 Ghost 脚本是否存在
-Write-Host "[2/4] 检查 Ghost 安装 ..." -ForegroundColor Yellow
+# Check if Ghost script exists
+Write-Host "[2/4] Checking Ghost installation ..." -ForegroundColor Yellow
 if (-not (Test-Path $GhostScript)) {
-    Write-Host "  错误：Ghost 脚本不存在: $GhostScript" -ForegroundColor Red
-    Write-Host "  请先安装 Ghost" -ForegroundColor Red
+    Write-Host "  Error: Ghost script not found: $GhostScript" -ForegroundColor Red
+    Write-Host "  Please install Ghost first" -ForegroundColor Red
     exit 1
 }
-Write-Host "  Ghost 脚本存在" -ForegroundColor Green
+Write-Host "  Ghost script found" -ForegroundColor Green
 
-# 检查数据库是否存在
-Write-Host "[3/4] 检查数据库 ..." -ForegroundColor Yellow
+# Check if database exists
+Write-Host "[3/4] Checking database ..." -ForegroundColor Yellow
 $dbPath = Join-Path $RuntimeDir "content\data\ghost.db"
 if (Test-Path $dbPath) {
-    Write-Host "  数据库存在" -ForegroundColor Green
+    Write-Host "  Database exists" -ForegroundColor Green
 } else {
-    Write-Host "  警告：数据库不存在，首次启动将自动初始化" -ForegroundColor Yellow
+    Write-Host "  Warning: Database not found, will auto-initialize on first start" -ForegroundColor Yellow
 }
 
-# 启动 Ghost
-Write-Host "[4/4] 启动 Ghost ..." -ForegroundColor Yellow
+# Start Ghost
+Write-Host "[4/4] Starting Ghost ..." -ForegroundColor Yellow
 Write-Host ""
 Write-Host "========================================" -ForegroundColor Cyan
-Write-Host "  Ghost 正在启动..." -ForegroundColor Green
-Write-Host "  前台地址: http://localhost:$Port/" -ForegroundColor Green
-Write-Host "  管理端:   http://localhost:$Port/ghost/" -ForegroundColor Green
-Write-Host "  按 Ctrl+C 停止服务" -ForegroundColor Yellow
+Write-Host "  Ghost is starting..." -ForegroundColor Green
+Write-Host "  Frontend: http://localhost:$Port/" -ForegroundColor Green
+Write-Host "  Admin:    http://localhost:$Port/ghost/" -ForegroundColor Green
+Write-Host "  Press Ctrl+C to stop" -ForegroundColor Yellow
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host ""
 
-# 设置环境变量并启动
+# Set environment and start
 $env:NODE_ENV = "development"
 Set-Location $RuntimeDir
 node $GhostScript
